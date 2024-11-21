@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminComponent } from './Component/admin/admin.component';
+// import { AdminComponent } from './Component/admin/admin.component';
 import { DashboardComponent } from './Component/Admin/dashboard/dashboard.component';
 import { MemberComponent } from './Component/Admin/member/member.component';
 import { ProgramComponent } from './Component/Admin/program/program.component';
@@ -34,11 +34,17 @@ import { MemberReportComponent } from './Component/Admin/member-report/member-re
 import { RiviewReportComponent } from './Component/Admin/riview-report/riview-report.component';
 import { AgeGenderReportComponent } from './Component/Admin/age-gender-report/age-gender-report.component';
 import { ProfileComponent } from './Component/Admin/profile/profile.component';
+import { AdminHomeComponent } from './Component/Admin/admin-home/admin-home.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
+    // AdminComponent,
     DashboardComponent,
     MemberComponent,
     ProgramComponent,
@@ -47,7 +53,7 @@ import { ProfileComponent } from './Component/Admin/profile/profile.component';
     MessageComponent,
     ReportComponent,
     ViewMemberComponent,
-    EnrollmentComponent,
+    EnrollmentComponent, 
     ViewProgramComponent,
     AddEditMemberComponent,
     AddEditProgramComponent,
@@ -68,11 +74,19 @@ import { ProfileComponent } from './Component/Admin/profile/profile.component';
     MemberReportComponent,
     RiviewReportComponent,
     AgeGenderReportComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminHomeComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

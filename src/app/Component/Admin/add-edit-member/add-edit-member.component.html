@@ -1,1 +1,70 @@
-<p>add-edit-member works!</p>
+<div class="container col d-flex justify-content-center">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+
+            <h3 class="text-danger">{{isEditMode == true ? 'Update User' : 'Add New member' }}</h3>
+
+        </div>
+        <div class="card-body" style="width: 400px;">
+
+            <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="phone" formControlName="phone">
+                </div>
+
+                <h3 class="text text-danger">Address Information</h3>
+
+                <div class="" formGroupName = "address">
+
+                    <div class="mb-3">
+                        <label for="addressLine1" class="form-label">AddressLine 1</label>
+                        <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1">
+                        <small class="text-danger"
+                            *ngIf="memberForm.get('address.addressLine1')?.invalid && memberForm.get('address.addressLine1')?.touched">
+                            Address Line1 is Required
+                        </small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="addressLine2" class="form-label">AddressLine 2</label>
+                        <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" formControlName="city">
+
+                    </div>
+                </div>
+                <!-- <div class="mb-3">
+            <label for="priority" class="form-label">P</label>
+            <select class="form-control" id="priority" formControlName="priority">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div> -->
+                <div class="mb-3 mx-auto">
+                    <button type="submit" [disabled]="memberForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
+                        true ? 'Update' : 'Save'}}</button>
+                    <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

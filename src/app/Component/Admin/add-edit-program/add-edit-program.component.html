@@ -1,1 +1,74 @@
-<p>add-edit-program works!</p>
+<div class="container col d-flex justify-content-center">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+
+            <h3 class="text-danger">{{isEditMode == true ? 'Update Program' : 'Add New program' }}</h3>
+
+        </div>
+        <div class="card-body" style="width: 400px;">
+
+            <form [formGroup]="programForm" (ngSubmit)="onSubmit()">
+
+                <div class="mb-3">
+                    <label for="programId" class="form-label">ProgramID</label>
+                    <input type="text" class="form-control" id="programId" formControlName="programId">
+                </div>
+                <div class="mb-3">
+                    <label for="programName" class="form-label">ProgramName</label>
+                    <input type="text" class="form-control" id="programName" formControlName="programName">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="password" class="form-control" id="description" formControlName="description">
+                </div>
+
+                <div class="mb-3">
+                    <label for="programStatus" class="form-label">ProgramStatus</label>
+                    <input type="text" class="form-control" id="programStatus" formControlName="programStatus">
+                </div>
+                <div class="mb-3">
+                    <label for="creationDate" class="form-label">CreationDate</label>
+                    <input type="date" class="form-control" id="creationDate" formControlName="creationDate">
+                </div>
+                <!-- <h3 class="text text-danger">Address Information</h3> -->
+
+                <!-- <div class="" formGroupName = "address">
+
+                    <div class="mb-3">
+                        <label for="addressLine1" class="form-label">AddressLine 1</label>
+                        <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1">
+                        <small class="text-danger"
+                            *ngIf="memberForm.get('address.addressLine1')?.invalid && memberForm.get('address.addressLine1')?.touched">
+                            Address Line1 is Required
+                        </small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="addressLine2" class="form-label">AddressLine 2</label>
+                        <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" formControlName="city">
+
+                    </div>
+                </div> -->
+                <!-- <div class="mb-3">
+            <label for="priority" class="form-label">P</label>
+            <select class="form-control" id="priority" formControlName="priority">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div> -->
+                <div class="mb-3 mx-auto">
+                    <button type="submit" [disabled]="programForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
+                        true ? 'Update' : 'Save'}}</button>
+                    <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
