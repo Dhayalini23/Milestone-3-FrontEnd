@@ -1,0 +1,22 @@
+
+.card-body {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .card-title {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .text-danger {
+    font-size: 0.875rem;
+  }
+  
+  button {
+    width: 100%;
+  }
+  

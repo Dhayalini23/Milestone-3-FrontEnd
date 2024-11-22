@@ -1,9 +1,9 @@
-<div class="container">
+<!-- <div class="container">
     <div class="card shadow p-3 mb-5 bg-white rounded">
       <div class="card-body">
         <div class="d-flex justify-content-between mb-3">
           <div class="p-2">
-            <input type="text" class="form-control"  placeholder="Search Task..." name="serach" >
+            <input type="text" class="form-control"  placeholder="Search Program..." name="serach" >
           </div>
           <div class="ml-auto p-2">
             <button type="button" class="btn btn-dark" [routerLink]="['/program-add-edit-program']" routerLinkActive="router-link-active"  ><i class="bi bi-plus-lg"></i>Add
@@ -20,7 +20,7 @@
               <th>Description</th>
               <th>ProgramStatus</th>
               <th>CreationDate</th>
-              <!-- <th>Actions</th>   -->
+            
             </tr>
           </thead>
           <tbody>
@@ -30,7 +30,7 @@
               <td>{{program.description}}</td>
               <td>{{program.programStatus}}</td>
               <td>{{program.creationDate}}</td>
-              <!-- <td>{{program.actions}}</td> -->
+              
 
               <td>
                 <button type="button" class="btn btn-primary me-3" [routerLink]="['/program-add-edit-program',program.id]" (click)="onEdit(program.id)"><i class="bi bi-pencil-square"></i></button>
@@ -41,4 +41,61 @@
         </table>
       </div>
     </div>
+  </div> -->
+  <div class="container">
+    
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        
+        <div class="d-flex justify-content-between mb-3">
+          <div class="p-2">
+            
+            <input type="text" class="form-control" placeholder="Search Program..." [(ngModel)]="searchText" (input)="onSearch()">
+          </div>
+          <div class="ml-auto p-2">
+         
+            <button type="button" class="btn btn-dark" [routerLink]="['/program-add-edit-program']" routerLinkActive="router-link-active">
+              <i class="bi bi-plus-lg"></i> Add Program
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ProgramID</th>
+              <th>ProgramName</th>
+              <th>Description</th>
+              <th>ProgramStatus</th>
+              <th>CreationDate</th>
+            
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let program of filteredPrograms">
+              <td>{{ program.id }}</td>
+              <td>{{ program.programName }}</td>
+              <td>{{ program.description }}</td>
+              <td>{{ program.programStatus }}</td>
+              <td>{{ program.creationDate | date: 'short' }}</td>
+              <td>
+               
+                <button type="button" class="btn btn-primary me-3" [routerLink]="['/program-add-edit-program', program.id]" (click)="onEdit(program.id)">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+               
+                <button type="button" class="btn btn-danger me-3" (click)="onDelete(program.id)">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+  

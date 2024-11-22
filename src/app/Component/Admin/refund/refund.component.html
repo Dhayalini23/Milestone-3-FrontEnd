@@ -1,1 +1,39 @@
-<p>refund works!</p>
+<!-- 
+<div class="container">
+    <div class="card shadow p-4 mb-5 bg-white rounded">
+      <div class="card-body">
+        <h4 class="card-title">Refund Request</h4>
+        <form [formGroup]="refundForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3">
+            <label for="memberId">Member ID</label>
+            <input type="text" id="memberId" class="form-control" formControlName="memberId" />
+            <div *ngIf="f.['memberId'].touched && f.['memberId'].invalid" class="text-danger">
+              <div *ngIf="f.['memberId'].errors?.['required']">Member ID is required.</div>
+              <div *ngIf="f.['memberId'].errors?.['pattern']">Member ID must be a number.</div>
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="reason">Reason</label>
+            <textarea id="reason" class="form-control" formControlName="reason" rows="3"></textarea>
+            <div *ngIf="f.reason.touched && f.reason.invalid" class="text-danger">
+              <div *ngIf="f.reason.errors?.['required']">Reason is required.</div>
+              <div *ngIf="f.reason.errors?.['maxlength']">Reason cannot exceed 255 characters.</div>
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" class="form-control" formControlName="amount" />
+            <div *ngIf="f.amount.touched && f.amount.invalid" class="text-danger">
+              <div *ngIf="f.amount.errors?.['required']">Amount is required.</div>
+              <div *ngIf="f.['amount'].errors?.['min']">Amount must be greater than 0.</div>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary" [disabled]="refundForm.invalid">Submit Refund</button>
+        </form>
+      </div>
+    </div>
+  </div>
+   -->

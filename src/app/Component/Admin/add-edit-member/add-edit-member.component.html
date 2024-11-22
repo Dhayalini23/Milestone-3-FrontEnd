@@ -48,17 +48,8 @@
                     <div class="mb-3">
                         <label for="city" class="form-label">City</label>
                         <input type="text" class="form-control" id="city" formControlName="city">
-
                     </div>
                 </div>
-                <!-- <div class="mb-3">
-            <label for="priority" class="form-label">P</label>
-            <select class="form-control" id="priority" formControlName="priority">
-              <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </select>
-          </div> -->
                 <div class="mb-3 mx-auto">
                     <button type="submit" [disabled]="memberForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
                         true ? 'Update' : 'Save'}}</button>

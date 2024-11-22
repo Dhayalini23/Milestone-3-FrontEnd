@@ -40,6 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterMemberPipe } from './Pipes/filter-member.pipe';
+import { FilterProgramPipe } from './Pipes/filter-program.pipe';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,8 @@ import { HttpClientModule } from '@angular/common/http';
     AgeGenderReportComponent,
     ProfileComponent,
     AdminHomeComponent,
+    FilterMemberPipe,
+    FilterProgramPipe,
 
   ],
   imports: [

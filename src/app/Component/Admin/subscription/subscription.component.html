@@ -1,1 +1,52 @@
-
+<div class="container">
+    
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        
+        <div class="d-flex justify-content-between mb-3">
+          <div class="p-2">
+            
+            <input type="text" class="form-control" placeholder="Search Subscription..." [(ngModel)]="searchText" (input)="onSearch()">
+          </div>
+          <div class="ml-auto p-2">
+         
+            <button type="button" class="btn btn-dark" [routerLink]="['/subscription-add-edit-subscription']" routerLinkActive="router-link-active">
+              <i class="bi bi-plus-lg"></i> Add Subscription
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>SubscriptionID</th>
+              <th>Subscription Name</th>
+              <th>Duration</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subscription of subscriptionData">
+              <td>{{ subscription.id }}</td>
+              <td>{{ subscription.subscriptionName }}</td>
+              <td>{{ subscription.duration }}</td>
+              <td>
+               
+                <button type="button" class="btn btn-primary me-3" [routerLink]="['/subscription-add-edit-subscription', subscription.id]" (click)="onEdit(subscription.id)">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+               
+                <button type="button" class="btn btn-danger me-3" (click)="onDelete(subscription.id)">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
