@@ -30,11 +30,6 @@ export class AddEditProgramComponent {
       description: [''],
       programStatus: [''],
       creationDate: ['', [Validators.required]],
-      // address: this.fb.group({
-      //   addressLine1:['',[Validators.required]],
-      //   addressLine2:[''],
-      //   city:['']
-      // })
     });
 
 
