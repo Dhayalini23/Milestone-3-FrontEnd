@@ -31,37 +31,6 @@
                     <label for="creationDate" class="form-label">CreationDate</label>
                     <input type="date" class="form-control" id="creationDate" formControlName="creationDate">
                 </div>
-                <!-- <h3 class="text text-danger">Address Information</h3> -->
-
-                <!-- <div class="" formGroupName = "address">
-
-                    <div class="mb-3">
-                        <label for="addressLine1" class="form-label">AddressLine 1</label>
-                        <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1">
-                        <small class="text-danger"
-                            *ngIf="memberForm.get('address.addressLine1')?.invalid && memberForm.get('address.addressLine1')?.touched">
-                            Address Line1 is Required
-                        </small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="addressLine2" class="form-label">AddressLine 2</label>
-                        <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" formControlName="city">
-
-                    </div>
-                </div> -->
-                <!-- <div class="mb-3">
-            <label for="priority" class="form-label">P</label>
-            <select class="form-control" id="priority" formControlName="priority">
-              <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </select>
-          </div> -->
                 <div class="mb-3 mx-auto">
                     <button type="submit" [disabled]="programForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
                         true ? 'Update' : 'Save'}}</button>

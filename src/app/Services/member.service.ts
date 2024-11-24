@@ -18,8 +18,8 @@ export class MemberService {
   deleteMember(memberId:number){
     return this.Http.delete('http://localhost:5198/api/Users/'+ memberId);
    }
-   updateMember(member:Member,userId:number){
-    return this.Http.put('http://localhost:5198/api/Users/'+ userId,member);
+   updateMember(member:Member,memberId:number){
+    return this.Http.put('http://localhost:5198/api/Users/'+ memberId,member);
    }
    getMemberById(memberId : number){
     return this.Http.get<Member>('http://localhost:5198/api/Users/' + memberId);

@@ -1,0 +1,16 @@
+/* Enhance button hover effects */
+.btn:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  
+  /* Improve table hover */
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Adding padding to the input field */
+  input.form-control {
+    padding: 0.75rem 1.25rem;
+  }
+  
