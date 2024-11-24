@@ -16,13 +16,13 @@ export class SubscriptionService {
   createSubscription(subscription:any){
     return this.Http.post('http://localhost:5198/api/Users',subscription);
    }
-  deleteSubscription(subscriptionId:number){
+  deleteSubscription(subscriptionId:string){
     return this.Http.delete('http://localhost:5198/api/Users/'+ subscriptionId);
    }
-   updateSubscription(subscription:Subscription,subscriptionId:number){
+   updateSubscription(subscription:Subscription,subscriptionId:string){
     return this.Http.put('http://localhost:5198/api/Users/'+ subscriptionId,subscription);
    }
-   getSubscriptionById(subscriptionId : number){
+   getSubscriptionById(subscriptionId : string){
     return this.Http.get<Subscription>('http://localhost:5198/api/Users/' + subscriptionId);
   }
 }

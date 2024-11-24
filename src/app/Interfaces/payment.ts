@@ -1,6 +1,6 @@
 export interface Payment{
     filter(arg0: (a: any) => any): Payment[];
-    id:number;
+    id:string;
     name:string;
     nicNumber:string;
     contactNo:string;

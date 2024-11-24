@@ -13,7 +13,6 @@ export class MemberComponent implements OnInit {
   members: Member[] = [];
   searchText: any;
   constructor(private memberService: MemberService, private toastr: ToastrService, private router:Router) {
-    console.log("test");
 
   }
 
@@ -22,7 +21,7 @@ export class MemberComponent implements OnInit {
   }
 
   close() { }
-  onDelete(memberId: number) {
+  onDelete(memberId: string) {
 
     if (confirm("Do you want to delete this member?")) {
       this.memberService.deleteMember(memberId).subscribe(data => {
@@ -38,15 +37,17 @@ export class MemberComponent implements OnInit {
   loadMembers(){
 
     this.memberService.getMember().subscribe(data =>{
-      console.log(data)
+      console.log(data);
+      
       this.members = data;
     })
   }
 
-  onEdit(memberid:number){
-    console.log(memberid);
+  onEdit(memberid:string){
     this.router.navigate(['user-add',memberid])
   }
+ onView(memberid:string){
 
+ }
 
 }

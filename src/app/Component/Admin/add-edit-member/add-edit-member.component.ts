@@ -14,7 +14,7 @@ export class AddEditMemberComponent {
 
   memberForm: FormGroup;
     isEditMode = false;
-    memberId: number
+    memberId: string
   
     constructor(private fb: FormBuilder,
       private memberService: MemberService,
@@ -23,19 +23,21 @@ export class AddEditMemberComponent {
       private toastr: ToastrService) {
   
       const uid = this.route.snapshot.paramMap.get("id");
-      this.memberId = Number(uid);
+      this.memberId = String(uid);
   
       this.memberForm = this.fb.group({
 
-        name: ['', [Validators.required]],
-        email: [''],
-        password: [''],
-        phone: ['', [Validators.required]],
-        address: this.fb.group({
-          addressLine1:['',[Validators.required]],
-          addressLine2:[''],
-          city:['']
-        })
+        firstName: ['', [Validators.required]],
+        lastName: [''],
+        age: [''],
+        height: ['', [Validators.required]],
+        weight:[''],
+        gender:[''],
+        dob:[''],
+        nic:[''],
+        email:[''],
+        contact:[''],
+        address:['']
       });
 
   

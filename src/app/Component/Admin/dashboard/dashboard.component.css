@@ -7,7 +7,7 @@
   }
   
   .purple-sidebar {
-    background-color:#417279;
+    background-color:rgb(117, 4, 4);
     width: 280px;
     height: 100vh;
     padding: 20px;
@@ -37,7 +37,7 @@
   .navbar-brand {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #6fd5e2;
+    color: rgb(117, 4, 4);
   }
   
   .navbar-nav .nav-link {

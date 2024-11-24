@@ -15,13 +15,13 @@ export class ProgramService {
   createProgram(program:any){
     return this.Http.post('http://localhost:5198/api/Users',program);
    }
-  deleteProgram(programId:number){
+  deleteProgram(programId:string){
     return this.Http.delete('http://localhost:5198/api/Users/'+ programId);
    }
-   updateProgram(program:Program,programId:number){
+   updateProgram(program:Program,programId:string){
     return this.Http.put('http://localhost:5198/api/Users/'+ programId,program);
    }
-   getprogramById(programId : number){
+   getprogramById(programId : string){
     return this.Http.get<Program>('http://localhost:5198/api/Users/' + programId);
   }
 }

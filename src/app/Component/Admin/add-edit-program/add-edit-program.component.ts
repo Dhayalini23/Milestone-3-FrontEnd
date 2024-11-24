@@ -13,7 +13,7 @@ export class AddEditProgramComponent {
 
   programForm: FormGroup;
   isEditMode = false;
-  programId: number
+  programId: string
 
   constructor(private fb: FormBuilder,
     private programService: ProgramService,
@@ -22,7 +22,7 @@ export class AddEditProgramComponent {
     private toastr: ToastrService) {
 
     const uid = this.route.snapshot.paramMap.get("id");
-    this.programId = Number(uid);
+    this.programId = String(uid);
 
     this.programForm = this.fb.group({
 
