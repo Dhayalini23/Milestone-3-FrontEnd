@@ -12,9 +12,11 @@ import { SkippedPaymentComponent } from './Component/Admin/skipped-payment/skipp
 import { OverdueComponent } from './Component/Admin/overdue/overdue.component';
 import { AddEditSubscriptionComponent } from './Component/Admin/add-edit-subscription/add-edit-subscription.component';
 import { ViewMemberComponent } from './Component/Admin/view-member/view-member.component';
+import { WebsiteComponent } from './Component/Main/website/website.component';
 
 const routes: Routes = [
-  {path:'', 
+  {path:'',component:WebsiteComponent},
+  {path:'admin', 
   component:DashboardComponent,
   children:[
     {path:'member',component:MemberComponent},
