@@ -24,9 +24,7 @@
 
   
   @media (max-width: 768px) {
-    /* .purple-sidebar {
-      width: 220px;
-    } */
+   
   }
   
  
@@ -48,14 +46,11 @@
     background-color: #383838;
     border-radius: 5px;
   }
-  
-  /* main {
-    display: flex;
-    height: 100vh;
-  } */
+ 
   
   .router-outlet {
     width: 100%;
     padding: 20px;
   }
+  
   

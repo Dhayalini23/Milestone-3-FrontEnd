@@ -1,16 +1,17 @@
 export interface Member{
     filter(arg0: (a: any) => any): Member[];
  id:string;
- name:string;
+ userId:string;
+ profileImage:string;
+ firstName:string;
  lastName:string;
  gender:string;
- hight:string;
+ height:string;
  weight:string;
  email:string;
  age:string;
  dob:string;
- nic:string;
- password:string;
- phone:string;
+ nicNo:string;
+ contactNo:string;
  address:string;
 }

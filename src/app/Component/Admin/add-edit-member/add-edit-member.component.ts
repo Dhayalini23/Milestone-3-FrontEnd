@@ -54,10 +54,10 @@ export class AddEditMemberComponent {
   
           this.memberForm.patchValue({
             id: data.id,
-            name: data.name,
+            // name: data.name,
             email: data.email,
-            password: data.password,
-            phone: data.phone,
+            // password: data.password,
+            phone: data.contactNo,
           })
         }, error => {
           this.toastr.error("Member is not found");
@@ -70,12 +70,14 @@ export class AddEditMemberComponent {
   
       if (this.isEditMode == true) {
         this.memberService.updateMember(user,this.memberId).subscribe(data => {
+     
           this.toastr.success("Member is updated successfully");
           this.router.navigate(["/members"]);
         });
       } else {
         console.log(user)
         this.memberService.createMember(user).subscribe(data => {
+
           this.toastr.success("Member is created successfully");
           this.router.navigate(["/members"]);
         });

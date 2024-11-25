@@ -44,10 +44,10 @@ export class MemberComponent implements OnInit {
   }
 
   onEdit(memberid:string){
-    this.router.navigate(['user-add',memberid])
+    this.router.navigate([ `editMember/:${memberid}`])
   }
  onView(memberid:string){
-
+    this.router.navigate([`viewMember/:id${memberid}`])
  }
 
 }

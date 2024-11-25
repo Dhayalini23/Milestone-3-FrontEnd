@@ -13,3 +13,10 @@ export interface Refund{
     reason: string;
     amount: number;
 }
+
+export interface SkippedPayment{
+    id:string;
+    startDate:string;
+    endDate:string;
+    reason:string;
+}

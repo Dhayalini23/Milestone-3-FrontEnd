@@ -36,7 +36,7 @@ export class SubscriptionComponent {
   }
 
 
-  onDelete(subscriptionId: number) {
+  onDelete(subscriptionId: string) {
     if (confirm("Do you want to delete this subscription?")) {
       this.subscriptionService.deleteSubscription(subscriptionId).subscribe(data => {
         this.toastr.success('Subscription is deleted', "Deleted", {
@@ -50,7 +50,7 @@ export class SubscriptionComponent {
     }
   }
 
-  onEdit(subscriptionId: number) {
+  onEdit(subscriptionId: string) {
     console.log("Editing Program with ID: ", subscriptionId);
     this.router.navigate(['/program-add-edit-program', subscriptionId]);
   }

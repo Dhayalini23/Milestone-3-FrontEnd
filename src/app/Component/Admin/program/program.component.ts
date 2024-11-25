@@ -78,7 +78,7 @@ export class ProgramComponent implements OnInit {
   }
 
 
-  onDelete(programId: number) {
+  onDelete(programId: string) {
     if (confirm("Do you want to delete this program?")) {
       this.programService.deleteProgram(programId).subscribe(data => {
         this.toastr.success('Program is deleted', "Deleted", {
@@ -92,7 +92,7 @@ export class ProgramComponent implements OnInit {
     }
   }
 
-  onEdit(programId: number) {
+  onEdit(programId: string) {
     console.log("Editing Program with ID: ", programId);
     this.router.navigate(['/program-add-edit-program', programId]);
   }

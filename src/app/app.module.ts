@@ -42,6 +42,24 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterMemberPipe } from './Pipes/filter-member.pipe';
 import { FilterProgramPipe } from './Pipes/filter-program.pipe';
+import { WebsiteComponent } from './Component/Main/website/website.component';
+import { HomeComponent } from './Component/Main/home/home.component';
+import { ViewAllProgramComponent } from './Component/Main/view-all-program/view-all-program.component';
+import { ViewAllSubscribtionsComponent } from './Component/Main/view-all-subscribtions/view-all-subscribtions.component';
+import { BMIComponent } from './Component/Main/bmi/bmi.component';
+import { ViewReviewComponent } from './Component/Main/view-review/view-review.component';
+import { GalleryComponent } from './Component/Main/gallery/gallery.component';
+import { ContactUsComponent } from './Component/Main/contact-us/contact-us.component';
+import { LoginComponent } from './Component/Main/login/login.component';
+import { UserHomeComponent } from './Component/User/user-home/user-home.component';
+import { MemberDetailsComponent } from './Component/User/member-details/member-details.component';
+import { AddReviewComponent } from './Component/User/add-review/add-review.component';
+import { NavigationComponent } from './Component/User/navigation/navigation.component';
+import { EnrolledProgramsComponent } from './Component/User/enrolled-programs/enrolled-programs.component';
+import { ChangePasswordComponent } from './Component/User/change-password/change-password.component';
+import { MemberPaymentComponent } from './Component/User/member-payment/member-payment.component';
+import { MemberPayComponent } from './Component/User/member-pay/member-pay.component';
+import { MemberSkippedPaymentComponent } from './Component/User/member-skipped-payment/member-skipped-payment.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +98,27 @@ import { FilterProgramPipe } from './Pipes/filter-program.pipe';
     AdminHomeComponent,
     FilterMemberPipe,
     FilterProgramPipe,
+ 
+    WebsiteComponent,
+    HomeComponent,
+    ViewAllProgramComponent,
+    ViewAllSubscribtionsComponent,
+    BMIComponent,
+    ViewReviewComponent,
+    GalleryComponent,
+    ContactUsComponent,
+    LoginComponent,
+    UserHomeComponent,
+    MemberDetailsComponent,
+
+    AddReviewComponent,
+      NavigationComponent,
+      EnrolledProgramsComponent,
+      ChangePasswordComponent,
+      MemberPaymentComponent,
+      MemberPayComponent,
+      MemberSkippedPaymentComponent,
+
 
   ],
   imports: [
