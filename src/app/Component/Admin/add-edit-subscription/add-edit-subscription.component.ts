@@ -28,8 +28,14 @@ export class AddEditSubscriptionComponent  {
 
     this.subscriptionForm = this.fb.group({
 
-      subscriptionName: ['', [Validators.required]],
-      duration: ['']
+      title: [''],
+      description:[''],
+      duration: [''],
+      isSpecialOffer:[''],
+      paymentType:[''],
+      paymentDate:[''],
+      userCanPay:[''],
+
     });
 
 
@@ -44,30 +50,26 @@ export class AddEditSubscriptionComponent  {
     if (this.isEditMode == true) {
       this.subscriptionService.getSubscriptionById(this.subscriptionId).subscribe(data => {
         console.log(data);
-        this.subscriptionForm.patchValue({
-          // id: data.id,
-          // subscriptionName: data.subscriptionName,
-          // duration: data.duration
-        })
+        this.subscriptionForm.patchValue(data)
       }, error => {
-        this.toastr.error("Program is not found");
+        this.toastr.error("Subscription is not found");
       });
     }
   }
 
   onSubmit() {
-    let program = this.subscriptionForm.value;
+    let subscription = this.subscriptionForm.value;
 
     if (this.isEditMode == true) {
-      this.subscriptionService.updateSubscription(program,this.subscriptionId).subscribe(data => {
-        this.toastr.success("Program is updated successfully");
-        this.router.navigate(["/programs"]);
+      this.subscriptionService.updateSubscription(subscription,this.subscriptionId).subscribe(data => {
+        this.toastr.success("Subscription is updated successfully");
+        this.router.navigate(["/subscriptions"]);
       });
     } else {
-      console.log(program)
-      this.subscriptionService.createSubscription(program).subscribe(data => {
-        this.toastr.success("Program is created successfully");
-        this.router.navigate(["/payments"]);
+      // console.log(program)
+      this.subscriptionService.createSubscription(subscription).subscribe(data => {
+        this.toastr.success("Subscription is created successfully");
+        this.router.navigate(["/subscriptions"]);
       });
     }
   }

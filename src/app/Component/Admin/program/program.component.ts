@@ -69,9 +69,9 @@ export class ProgramComponent implements OnInit {
 
   loadPrograms() {
     this.programService.getProgram().subscribe(data => {
-      console.log(data);
+      console.log("asaaaaa"+data);
       this.programs = data;     
-      this.filteredPrograms = data; 
+      // this.filteredPrograms = data; 
     }, error => {
       this.toastr.error("Failed to load programs", "Error");
     });
@@ -101,7 +101,7 @@ export class ProgramComponent implements OnInit {
   onSearch() {
     if (this.searchText) {
       this.filteredPrograms = this.programs.filter(program =>
-        program.programName.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        program.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
         program.description.toLowerCase().includes(this.searchText.toLowerCase())
       );
     } else {

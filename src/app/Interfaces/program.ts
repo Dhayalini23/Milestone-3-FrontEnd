@@ -1,9 +1,10 @@
 export interface Program{
     filter(arg0: (a: any) => any): Program[];
     id:string;
-    programName:string;
+    name:string;
     description:string;
-    programStatus:boolean;
-    creationDate:string;
+    images:string;
+    // programStatus:boolean;
+    // creationDate:string;
     
 }

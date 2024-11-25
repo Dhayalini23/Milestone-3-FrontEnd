@@ -1,22 +1,31 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card id-card text-center p-4">
-      <div class="card-body">
-        <div class="profile-pic mb-3">
-          <img src="profile-placeholder.png" alt="Profile Picture" class="img-fluid rounded-circle">
-        </div>
-        <h4 class="card-title">JOHN SMITH</h4>
-        <p class="text-muted">General Manager</p>
-        <div class="details text-start">
-          <p><strong>ID No:</strong> 000001</p>
-          <p><strong>Blood:</strong> O+</p>
-          <p><strong>Email:</strong>admin</p>
-          <p><strong>Phone:</strong> +0123 456 7890</p>
-          <p><strong>Dept:</strong> Finance</p>
-          <p><strong>Valid Thru:</strong> MM/YY</p>
-        </div>
-        <div class="barcode mt-3">
-          <img src="barcode-placeholder.png" alt="Barcode" class="img-fluid">
-        </div>
+  <div class="card id-card text-center p-4">
+    <div class="card-body">
+      <div class="profile-pic mb-3">
+        <img src="profile-placeholder.png" alt="Profile Picture" class="img-fluid rounded-circle">
+      </div>
+      <h4 class="card-title">JOHN SMITH</h4>
+      <p class="text-muted">General Manager</p>
+      <div class="details text-start">
+        <!-- <p><strong>ID No:</strong> 000001</p>
+        <p><strong>Blood:</strong> O+</p>
+        <p><strong>Email:</strong>admin</p>
+        <p><strong>Phone:</strong> +0123 456 7890</p>
+        <p><strong>Dept:</strong> Finance</p>
+        <p><strong>Valid Thru:</strong> MM/YY</p> -->
+        <tr *ngFor="let member of members">
+          <td>{{member.userId}}</td>
+          <td>{{member.firstName}} {{member.lastName}}</td>
+          <td>{{member.email}}</td>
+          <td>{{member.contactNo}}</td>
+          <td> {{member.address}}</td>
+          <td>
+        </tr>
+
+      </div>
+      <div class="barcode mt-3">
+        <img src="barcode-placeholder.png" alt="Barcode" class="img-fluid">
       </div>
     </div>
   </div>
+</div>

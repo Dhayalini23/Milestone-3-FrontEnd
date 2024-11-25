@@ -23,6 +23,9 @@ const routes: Routes = [
     {path: 'payment', component: PaymentComponent}
 ]},
 {path:'viewMember/:id', component:ViewMemberComponent},
+{path:'editMember/:id',component:AddEditMemberComponent},
+
+
   {path: 'member', 
   component: MemberComponent ,
   children:[

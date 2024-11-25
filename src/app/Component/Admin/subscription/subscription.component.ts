@@ -26,13 +26,17 @@ export class SubscriptionComponent {
 
 
   loadSubscription() {
-    this.subscriptionService.getSubscription().subscribe(data => {
-      console.log(data);
-      // this.subscriptionData = data;     
-
-    }, error => {
-      this.toastr.error("Failed to load subscriptions", "Error");
-    });
+    this.subscriptionService.getSubscription().subscribe({
+      next:(response:any) => {
+        this.subscriptionData = response
+      },
+      complete:() => {
+        
+      },
+      error:(err:any)=>{
+        this.toastr.error("Failed to load subscriptions", "Error");
+      }
+    })
   }
 
 
@@ -59,7 +63,7 @@ export class SubscriptionComponent {
   onSearch() {
     if (this.searchText) {
       this.filteredSubscription = this.subscriptionData.filter(subscriptions =>
-        subscriptions.subscriptionName.toLowerCase().includes(this.searchText.toLowerCase()) 
+        subscriptions.title.toLowerCase().includes(this.searchText.toLowerCase()) 
   
       );
     } else {

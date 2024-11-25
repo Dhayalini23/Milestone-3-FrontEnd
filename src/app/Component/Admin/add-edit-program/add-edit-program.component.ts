@@ -25,11 +25,11 @@ export class AddEditProgramComponent {
     this.programId = String(uid);
 
     this.programForm = this.fb.group({
-
-      programName: ['', [Validators.required]],
+      id:[''],
+      name: ['', [Validators.required]],
       description: [''],
-      programStatus: [''],
-      creationDate: ['', [Validators.required]],
+      // programStatus: [''],
+      // creationDate: ['', [Validators.required]],
     });
 
 
@@ -46,10 +46,10 @@ export class AddEditProgramComponent {
 
         this.programForm.patchValue({
           id: data.id,
-          programName: data.programName,
+          programName: data.name,
           description: data.description,
-          programStatus: data.programStatus,
-          creationDate: data.creationDate,
+          // programStatus: data.programStatus,
+          // creationDate: data.creationDate,
         })
       }, error => {
         this.toastr.error("Program is not found");

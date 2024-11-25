@@ -3,16 +3,31 @@
     <div class="card shadow p-3 mb-5 bg-white rounded">
       <div class="card-body">
         
-        <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex justify-content-between mb-3 ">
           <div class="p-2">
             
             <input type="text" class="form-control" placeholder="Search Subscription..." [(ngModel)]="searchText" (input)="onSearch()">
           </div>
           <div class="ml-auto p-2">
-         
-            <button type="button" class="btn btn-dark" [routerLink]="['/subscription-add-edit-subscription']" routerLinkActive="router-link-active">
-              <i class="bi bi-plus-lg"></i> Add Subscription
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-lg"></i>
+              Add New Subscription
             </button>
+            <div class="modal fade p-0 m-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                  </div>
+                  <div class="modal-body">
+                  <app-add-edit-subscription></app-add-edit-subscription>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <button type="button" class="btn btn-dark" [routerLink]="['/subscription-add-edit-subscription']" routerLinkActive="router-link-active">
+              <i class="bi bi-plus-lg"></i> Add Subscription
+            </button> -->
           </div>
         </div>
       </div>
@@ -31,11 +46,11 @@
           <tbody>
             <tr *ngFor="let subscription of subscriptionData">
               <td>{{ subscription.id }}</td>
-              <td>{{ subscription.subscriptionName }}</td>
+              <td>{{ subscription.title}}</td>
               <td>{{ subscription.duration }}</td>
               <td>
                
-                <button type="button" class="btn btn-primary me-3" [routerLink]="['/subscription-add-edit-subscription', subscription.id]" (click)="onEdit(subscription.id)">
+                <button type="button" class="btn btn-warning me-3" [routerLink]="['/subscription-add-edit-subscription', subscription.id]" (click)="onEdit(subscription.id)">
                   <i class="bi bi-pencil-square"></i>
                 </button>
                

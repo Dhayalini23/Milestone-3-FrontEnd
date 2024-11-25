@@ -7,13 +7,13 @@
   }
   
   .purple-sidebar {
-    background-color:rgb(117, 4, 4);
+    background-color:black;
     width: 280px;
     height: 100vh;
     padding: 20px;
     color: white;
   }
-  
+ 
   .purple-sidebar .nav-link {
     color: white;
     text-decoration: none;
@@ -22,7 +22,18 @@
     align-items: center;
   }
 
+  .bg{
+
+    background-image: url('X:/FrontEnd/Milestone-3-FrontEnd/public/bg1.jpg');
+    background-position: center;
+    background-size: contain;
+    background-blend-mode: overlay;
   
+   
+    }
+    div{
+      background: transparent;
+    }
   @media (max-width: 768px) {
    
   }
@@ -35,7 +46,7 @@
   .navbar-brand {
     font-size: 2.5rem;
     font-weight: bold;
-    color: rgb(117, 4, 4);
+    color: white;
   }
   
   .navbar-nav .nav-link {

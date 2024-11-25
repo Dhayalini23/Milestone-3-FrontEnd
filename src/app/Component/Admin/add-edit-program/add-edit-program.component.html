@@ -11,11 +11,11 @@
 
                 <div class="mb-3">
                     <label for="programId" class="form-label">ProgramID</label>
-                    <input type="text" class="form-control" id="programId" formControlName="programId">
+                    <input type="text" class="form-control" id="programId" formControlName="id">
                 </div>
                 <div class="mb-3">
                     <label for="programName" class="form-label">ProgramName</label>
-                    <input type="text" class="form-control" id="programName" formControlName="programName">
+                    <input type="text" class="form-control" id="programName" formControlName="name">
                 </div>
 
                 <div class="mb-3">
@@ -23,14 +23,14 @@
                     <input type="password" class="form-control" id="description" formControlName="description">
                 </div>
 
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="programStatus" class="form-label">ProgramStatus</label>
                     <input type="text" class="form-control" id="programStatus" formControlName="programStatus">
                 </div>
                 <div class="mb-3">
                     <label for="creationDate" class="form-label">CreationDate</label>
                     <input type="date" class="form-control" id="creationDate" formControlName="creationDate">
-                </div>
+                </div> -->
                 <div class="mb-3 mx-auto">
                     <button type="submit" [disabled]="programForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
                         true ? 'Update' : 'Save'}}</button>

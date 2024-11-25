@@ -32,7 +32,7 @@ export class MemberService {
     return this.Http.delete(this.api+'Admin/Delete-Member/' + memberId);
   }
   updateMember(member: Member, memberId: string) {
-    return this.Http.put(this.api+'Admin/Get-Single-Member' + memberId, member);
+    return this.Http.put(this.api+'Admin/Update-Member' + memberId, member);
   }
   getMemberById(memberId: string) {
     return this.Http.get<Member>(this.api+'Admin/Get-Single-Member' + memberId);

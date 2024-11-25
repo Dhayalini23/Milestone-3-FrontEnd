@@ -8,21 +8,24 @@ import { Observable } from 'rxjs';
 })
 export class ProgramService {
 
+  api:string="http://localhost:5278/api/";
   constructor(private Http:HttpClient) { }
 
   getProgram(){
-    return this.Http.get<Program[]>('http://localhost:5198/api/Users');
+    return this.Http.get<Program[]>(this.api+'Admin/GetAllPrograms');
+
+    
   }
   createProgram(program:any){
-    return this.Http.post('http://localhost:5198/api/Users',program);
+    return this.Http.post(this.api+ 'Admin/Add-Program',program);
    }
   deleteProgram(programId:string){
-    return this.Http.delete('http://localhost:5278/api/Admin/Add-Program/'+ programId);
+    return this.Http.delete(this.api+'Admin/DeleteProgram'+ programId);
    }
    updateProgram(program:Program,programId:string){
-    return this.Http.put('http://localhost:5198/api/Users/'+ programId,program);
+    return this.Http.put(this.api+'Admin/UpdateProgram'+ programId,program);
    }
    getprogramById(programId : string){
-    return this.Http.get<Program>('http://localhost:5198/api/Users/' + programId);
+    return this.Http.get<Program>(this.api+'Admin/Get-Single-Program' + programId);
   }
 }
