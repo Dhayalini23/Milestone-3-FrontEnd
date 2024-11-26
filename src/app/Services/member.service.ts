@@ -6,22 +6,35 @@ import { Member } from '../Interfaces/member';
   providedIn: 'root'
 })
 export class MemberService {
+  api:string="http://localhost:5278/api/";
+  constructor(private Http: HttpClient) { }
 
-  constructor(private Http:HttpClient) { }
+  getMember() {
+    var tt = this.Http.get<Member[]>(this.api+'Admin/Get-All-Members');
 
-  getMember(){
-    return this.Http.get<Member[]>('http://localhost:5198/api/Users');
+    tt.subscribe(data => 
+        {
+         console.log(data);
+         
+        },
+        error =>
+        {
+          console.log(error);
+          
+        }
+    )
+    return tt;
   }
-  createMember(member:any){
-    return this.Http.post('http://localhost:5198/api/Users',member);
-   }
-  deleteMember(memberId:number){
-    return this.Http.delete('http://localhost:5198/api/Users/'+ memberId);
-   }
-   updateMember(member:Member,memberId:number){
-    return this.Http.put('http://localhost:5198/api/Users/'+ memberId,member);
-   }
-   getMemberById(memberId : number){
-    return this.Http.get<Member>('http://localhost:5198/api/Users/' + memberId);
+  createMember(member: any) {
+    return this.Http.post(this.api+'Admin/Add-User', member);
+  }
+  deleteMember(memberId: string) {
+    return this.Http.delete(this.api+'Admin/Delete-Member/' + memberId);
+  }
+  updateMember(member: Member, memberId: string) {
+    return this.Http.put(this.api+'Admin/Update-Member' + memberId, member);
+  }
+  getMemberById(memberId: string) {
+    return this.Http.get<Member>(this.api+'Admin/Get-Single-Member' + memberId);
   }
 }

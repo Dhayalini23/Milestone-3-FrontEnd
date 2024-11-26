@@ -1,62 +1,60 @@
-<div class="container col d-flex justify-content-center">
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-header">
+<div class="form-container p-10 m-10 ">
+    <h3 class="text-dark">{{isEditMode == true ? 'Update User' : 'Add New member' }}</h3>
+    <form (ngSubmit)="onSubmit()" [formGroup]="memberForm">
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" class="form-control"  formControlName="firstName" ngModel required />
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" formControlName="lastName" ngModel required />
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" class="form-control" formControlName="age" ngModel required />
+      </div>
+      <div>
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height" class="form-control" formControlName="height" ngModel />
+      </div>
+      <div>
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight" class="form-control" formControlName="weight" ngModel />
+      </div>
+      <div>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" formControlName="gender" ngModel /> Male
+        <input type="radio" id="female" name="gender" value="Female" formControlName="gender" ngModel />
+        Female
+        <input type="radio" id="other" name="gender" value="Other" formControlName="gender" ngModel /> Other
+      </div>
+      <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" formControlName="dob" ngModel />
+      </div>
+      <div>
+        <label for="nic">NIC number:</label>
+        <input type="text" id="nic" name="nic" formControlName="nic" ngModel required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" formControlName="email" ngModel required />
+      </div>
+      <div>
+        <label for="contact">Contact Number:</label>
+        <input type="text" id="contact" name="contact" class="form-control" formControlName="contact" ngModel required />
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" class="form-control" formControlName="address" ngModel></textarea>
+      </div>
 
-            <h3 class="text-danger">{{isEditMode == true ? 'Update User' : 'Add New member' }}</h3>
-          
-
-        </div>
-        <div class="card-body" style="width: 400px;">
-
-            <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
-
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" formControlName="name">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" formControlName="email">
-                </div>
-
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" formControlName="password">
-                </div>
-
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="phone" formControlName="phone">
-                </div>
-
-                <h3 class="text text-danger">Address Information</h3>
-
-                <div class="" formGroupName = "address">
-
-                    <div class="mb-3">
-                        <label for="addressLine1" class="form-label">AddressLine 1</label>
-                        <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1">
-                        <small class="text-danger"
-                            *ngIf="memberForm.get('address.addressLine1')?.invalid && memberForm.get('address.addressLine1')?.touched">
-                            Address Line1 is Required
-                        </small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="addressLine2" class="form-label">AddressLine 2</label>
-                        <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" formControlName="city">
-                    </div>
-                </div>
-                <div class="mb-3 mx-auto">
-                    <button type="submit" [disabled]="memberForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
-                        true ? 'Update' : 'Save'}}</button>
-                    <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
-                </div>
-            </form>
-        </div>
+      <div class="mb-3 mx-auto">
+        <button type="submit" [disabled]="memberForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
+            true ? 'Update' : 'Save'}}</button>
+        <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
     </div>
-</div>
+      <!-- <button type="submit" [disabled]="!memberForm.valid">Add Member</button> -->
+    </form>
+  </div>
+  

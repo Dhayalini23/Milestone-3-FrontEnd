@@ -26,17 +26,21 @@ export class SubscriptionComponent {
 
 
   loadSubscription() {
-    this.subscriptionService.getSubscription().subscribe(data => {
-      console.log(data);
-      // this.subscriptionData = data;     
-
-    }, error => {
-      this.toastr.error("Failed to load subscriptions", "Error");
-    });
+    this.subscriptionService.getSubscription().subscribe({
+      next:(response:any) => {
+        this.subscriptionData = response
+      },
+      complete:() => {
+        
+      },
+      error:(err:any)=>{
+        this.toastr.error("Failed to load subscriptions", "Error");
+      }
+    })
   }
 
 
-  onDelete(subscriptionId: number) {
+  onDelete(subscriptionId: string) {
     if (confirm("Do you want to delete this subscription?")) {
       this.subscriptionService.deleteSubscription(subscriptionId).subscribe(data => {
         this.toastr.success('Subscription is deleted', "Deleted", {
@@ -50,7 +54,7 @@ export class SubscriptionComponent {
     }
   }
 
-  onEdit(subscriptionId: number) {
+  onEdit(subscriptionId: string) {
     console.log("Editing Program with ID: ", subscriptionId);
     this.router.navigate(['/program-add-edit-program', subscriptionId]);
   }
@@ -59,7 +63,7 @@ export class SubscriptionComponent {
   onSearch() {
     if (this.searchText) {
       this.filteredSubscription = this.subscriptionData.filter(subscriptions =>
-        subscriptions.subscriptionName.toLowerCase().includes(this.searchText.toLowerCase()) 
+        subscriptions.title.toLowerCase().includes(this.searchText.toLowerCase()) 
   
       );
     } else {

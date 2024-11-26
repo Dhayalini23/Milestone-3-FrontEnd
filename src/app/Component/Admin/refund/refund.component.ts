@@ -15,7 +15,7 @@ export class RefundComponent {
 
   paymentForm!: FormGroup;
   isEditMode: boolean = false;
-  refundId: number | null = null;  
+  refundId: string | null = null;  
 
   constructor(
     private fb: FormBuilder,
@@ -32,7 +32,7 @@ export class RefundComponent {
     const refundId = this.router.url.split('/').pop();  
     if (refundId) {
       this.isEditMode = true;
-      this.refundId = Number(refundId);
+      this.refundId = String(refundId);
       this.loadRefundData(this.refundId);
     }
   }
@@ -47,7 +47,7 @@ export class RefundComponent {
   }
 
 
-  private loadRefundData(refundId: number) {
+  private loadRefundData(refundId: string) {
     this.refundService.getPaymentById(refundId).subscribe(data => {
       this.paymentForm.patchValue({
         memberId: data.memberId,
@@ -100,6 +100,6 @@ export class RefundComponent {
 
   cancel() {
     this.paymentForm.reset();
-    this.router.navigate(['/refunds']);
+    this.router.navigate(['/payments']);
   }
 }

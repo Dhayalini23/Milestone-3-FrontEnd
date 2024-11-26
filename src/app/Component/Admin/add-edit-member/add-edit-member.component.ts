@@ -14,7 +14,7 @@ export class AddEditMemberComponent {
 
   memberForm: FormGroup;
     isEditMode = false;
-    memberId: number
+    memberId: string
   
     constructor(private fb: FormBuilder,
       private memberService: MemberService,
@@ -23,19 +23,21 @@ export class AddEditMemberComponent {
       private toastr: ToastrService) {
   
       const uid = this.route.snapshot.paramMap.get("id");
-      this.memberId = Number(uid);
+      this.memberId = String(uid);
   
       this.memberForm = this.fb.group({
 
-        name: ['', [Validators.required]],
-        email: [''],
-        password: [''],
-        phone: ['', [Validators.required]],
-        address: this.fb.group({
-          addressLine1:['',[Validators.required]],
-          addressLine2:[''],
-          city:['']
-        })
+        firstName: ['', [Validators.required]],
+        lastName: [''],
+        age: [''],
+        height: ['', [Validators.required]],
+        weight:[''],
+        gender:[''],
+        dob:[''],
+        nic:[''],
+        email:[''],
+        contact:[''],
+        address:['']
       });
 
   
@@ -52,10 +54,10 @@ export class AddEditMemberComponent {
   
           this.memberForm.patchValue({
             id: data.id,
-            name: data.name,
+            // name: data.name,
             email: data.email,
-            password: data.password,
-            phone: data.phone,
+            // password: data.password,
+            phone: data.contactNo,
           })
         }, error => {
           this.toastr.error("Member is not found");
@@ -68,12 +70,14 @@ export class AddEditMemberComponent {
   
       if (this.isEditMode == true) {
         this.memberService.updateMember(user,this.memberId).subscribe(data => {
+     
           this.toastr.success("Member is updated successfully");
           this.router.navigate(["/members"]);
         });
       } else {
         console.log(user)
         this.memberService.createMember(user).subscribe(data => {
+
           this.toastr.success("Member is created successfully");
           this.router.navigate(["/members"]);
         });

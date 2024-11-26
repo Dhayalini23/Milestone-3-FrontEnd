@@ -1,6 +1,6 @@
 export interface Payment{
     filter(arg0: (a: any) => any): Payment[];
-    id:number;
+    id:string;
     name:string;
     nicNumber:string;
     contactNo:string;
@@ -12,4 +12,11 @@ export interface Refund{
     memberId: number;
     reason: string;
     amount: number;
+}
+
+export interface SkippedPayment{
+    id:string;
+    startDate:string;
+    endDate:string;
+    reason:string;
 }
