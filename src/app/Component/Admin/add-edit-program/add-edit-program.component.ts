@@ -13,7 +13,7 @@ export class AddEditProgramComponent {
 
   programForm: FormGroup;
   isEditMode = false;
-  programId: number
+  programId: string
 
   constructor(private fb: FormBuilder,
     private programService: ProgramService,
@@ -22,14 +22,14 @@ export class AddEditProgramComponent {
     private toastr: ToastrService) {
 
     const uid = this.route.snapshot.paramMap.get("id");
-    this.programId = Number(uid);
+    this.programId = String(uid);
 
     this.programForm = this.fb.group({
-
-      programName: ['', [Validators.required]],
+      id:[''],
+      name: ['', [Validators.required]],
       description: [''],
-      programStatus: [''],
-      creationDate: ['', [Validators.required]],
+      // programStatus: [''],
+      // creationDate: ['', [Validators.required]],
     });
 
 
@@ -46,10 +46,10 @@ export class AddEditProgramComponent {
 
         this.programForm.patchValue({
           id: data.id,
-          programName: data.programName,
+          programName: data.name,
           description: data.description,
-          programStatus: data.programStatus,
-          creationDate: data.creationDate,
+          // programStatus: data.programStatus,
+          // creationDate: data.creationDate,
         })
       }, error => {
         this.toastr.error("Program is not found");

@@ -1,0 +1,46 @@
+.form-container {
+    background-color: #fcf9f9;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    /* height: 1000PX; */
+    margin: auto;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  textarea,
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  button {
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+  }
+  

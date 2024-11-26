@@ -36,11 +36,16 @@ const routes: Routes = [
     {path: 'subscription', component: SubscriptionComponent },
     {path: 'payment', component: PaymentComponent}
 ]},
+{path:'viewMember/:id', component:ViewMemberComponent},
+{path:'editMember/:id',component:AddEditMemberComponent},
+
+
   {path: 'member', 
   component: MemberComponent ,
   children:[
     {path:'addMember',component:AddEditMemberComponent},
-    {path:'viewMember', component:ViewMemberComponent}
+    {path:'editMember/:id',component:AddEditMemberComponent},
+    {path:'viewMember/:id', component:ViewMemberComponent}
   ]
 },
   {path: 'program', 

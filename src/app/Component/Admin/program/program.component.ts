@@ -69,16 +69,16 @@ export class ProgramComponent implements OnInit {
 
   loadPrograms() {
     this.programService.getProgram().subscribe(data => {
-      console.log(data);
+      console.log("asaaaaa"+data);
       this.programs = data;     
-      this.filteredPrograms = data; 
+      // this.filteredPrograms = data; 
     }, error => {
       this.toastr.error("Failed to load programs", "Error");
     });
   }
 
 
-  onDelete(programId: number) {
+  onDelete(programId: string) {
     if (confirm("Do you want to delete this program?")) {
       this.programService.deleteProgram(programId).subscribe(data => {
         this.toastr.success('Program is deleted', "Deleted", {
@@ -92,7 +92,7 @@ export class ProgramComponent implements OnInit {
     }
   }
 
-  onEdit(programId: number) {
+  onEdit(programId: string) {
     console.log("Editing Program with ID: ", programId);
     this.router.navigate(['/program-add-edit-program', programId]);
   }
@@ -101,7 +101,7 @@ export class ProgramComponent implements OnInit {
   onSearch() {
     if (this.searchText) {
       this.filteredPrograms = this.programs.filter(program =>
-        program.programName.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        program.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
         program.description.toLowerCase().includes(this.searchText.toLowerCase())
       );
     } else {
