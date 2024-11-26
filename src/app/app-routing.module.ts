@@ -16,6 +16,7 @@ import { WebsiteComponent } from './Component/Main/website/website.component';
 import { HomeComponent } from './Component/Main/home/home.component';
 import { GalleryComponent } from './Component/Main/gallery/gallery.component';
 import { ContactUsComponent } from './Component/Main/contact-us/contact-us.component';
+import { LoginComponent } from './Component/Main/login/login.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
       // {path:'',component:HomeComponent},
     ]
   },
+  {path:'login',component:LoginComponent},
   {path:'admin', 
   component:DashboardComponent,
   children:[

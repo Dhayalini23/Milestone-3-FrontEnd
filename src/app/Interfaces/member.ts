@@ -15,3 +15,7 @@ export interface Member{
  contactNo:string;
  address:string;
 }
+export interface User{
+    userId:number;
+    password:string;
+}

@@ -29,3 +29,7 @@
       height: 11em;
     }
   }
+  .card .icon {
+    font-size: 3rem;
+    color: lightseagreen;
+  }

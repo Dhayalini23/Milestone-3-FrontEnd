@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Program, WorkOutProgram } from '../Interfaces/program';
-=======
 
 import { Observable } from 'rxjs';
 
@@ -12,7 +11,6 @@ import { Observable } from 'rxjs';
 export class ProgramService {
 
 
-=======
 
   api:string="http://localhost:5278/api/";
 
