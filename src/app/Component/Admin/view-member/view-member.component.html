@@ -4,22 +4,55 @@
       <div class="profile-pic mb-3">
         <img src="profile-placeholder.png" alt="Profile Picture" class="img-fluid rounded-circle">
       </div>
-      <h4 class="card-title">JOHN SMITH</h4>
-      <p class="text-muted">General Manager</p>
+     
       <div class="details text-start">
-        <!-- <p><strong>ID No:</strong> 000001</p>
-        <p><strong>Blood:</strong> O+</p>
-        <p><strong>Email:</strong>admin</p>
-        <p><strong>Phone:</strong> +0123 456 7890</p>
-        <p><strong>Dept:</strong> Finance</p>
-        <p><strong>Valid Thru:</strong> MM/YY</p> -->
+      
         <tr *ngFor="let member of members">
-          <td>{{member.userId}}</td>
+
+          <div class="member-details-card">
+            <h2>User Details</h2>
+            <div class="detail-item">
+              <strong>Id:</strong> {{ member.id }}
+            </div>
+            <div class="detail-item">
+              <strong>Name:</strong> {{ member.firstName }}{{ member.lastName }}
+            </div>
+            <div class="detail-item">
+              <strong>NIC:</strong> {{ member.nicNo }}
+            </div>
+            <div class="detail-item">
+              <strong>Age:</strong> {{ member.age }}
+            </div>
+            <div class="detail-item">
+              <strong>Gender:</strong> {{ member.gender }}
+            </div>
+            <div class="detail-item">
+              <strong>Date of Birth:</strong> {{ member.dob }}
+            </div>
+            <div class="detail-item">
+              <strong>Height:</strong> {{ member.height }} cm
+            </div>
+            <div class="detail-item">
+              <strong>Weight:</strong> {{ member.weight }} kg
+            </div>
+            <div class="detail-item">
+              <strong>Email:</strong> {{ member.email }}
+            </div>
+            <div class="detail-item">
+              <strong>Address:</strong> {{ member.address }}
+            </div>
+            <div class="detail-item">
+              <strong>Contact No.:</strong> {{ member.contactNo }}
+            </div>
+            <button class="btn" (click)="onClose()">Okay</button>
+          </div>
+          
+          <!-- <td>{{member.userId}}</td>
           <td>{{member.firstName}} {{member.lastName}}</td>
           <td>{{member.email}}</td>
           <td>{{member.contactNo}}</td>
           <td> {{member.address}}</td>
-          <td>
+          <td> -->
         </tr>
 
       </div>
@@ -29,3 +62,41 @@
     </div>
   </div>
 </div>
+
+<!-- <div class="member-details-card">
+  <h2>User Details</h2>
+  <div class="detail-item">
+    <strong>Id:</strong> {{ member.id }}
+  </div>
+  <div class="detail-item">
+    <strong>Name:</strong> {{ member.name }}
+  </div>
+  <div class="detail-item">
+    <strong>NIC:</strong> {{ member.nic }}
+  </div>
+  <div class="detail-item">
+    <strong>Age:</strong> {{ member.age }}
+  </div>
+  <div class="detail-item">
+    <strong>Gender:</strong> {{ member.gender }}
+  </div>
+  <div class="detail-item">
+    <strong>Date of Birth:</strong> {{ member.dateOfBirth }}
+  </div>
+  <div class="detail-item">
+    <strong>Height:</strong> {{ member.height }} cm
+  </div>
+  <div class="detail-item">
+    <strong>Weight:</strong> {{ member.weight }} kg
+  </div>
+  <div class="detail-item">
+    <strong>Email:</strong> {{ member.email }}
+  </div>
+  <div class="detail-item">
+    <strong>Address:</strong> {{ member.address }}
+  </div>
+  <div class="detail-item">
+    <strong>Contact No.:</strong> {{ member.contactNo }}
+  </div>
+  <button class="btn" (click)="onClose()">Okay</button>
+</div> -->

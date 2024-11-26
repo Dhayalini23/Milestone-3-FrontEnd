@@ -1,60 +1,94 @@
-<div class="form-container p-10 m-10 ">
-    <h3 class="text-dark">{{isEditMode == true ? 'Update User' : 'Add New member' }}</h3>
-    <form (ngSubmit)="onSubmit()" [formGroup]="memberForm">
-      <div>
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" class="form-control"  formControlName="firstName" ngModel required />
+<div class="container mt-4">
+  <h3 class="text-dark text-center">{{ isEditMode ? 'Update User' : 'Add New Member' }}</h3>
+  <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- First Name -->
+      <div class="col-md-6 mb-3">
+        <label for="firstName" class="form-label">First Name:</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" formControlName="firstName" ngModel required />
       </div>
-      <div>
-        <label for="lastName">Last Name:</label>
+      
+      <!-- Last Name -->
+      <div class="col-md-6 mb-3">
+        <label for="lastName" class="form-label">Last Name:</label>
         <input type="text" id="lastName" name="lastName" class="form-control" formControlName="lastName" ngModel required />
       </div>
-      <div>
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" class="form-control" formControlName="age" ngModel required />
-      </div>
-      <div>
-        <label for="height">Height:</label>
-        <input type="text" id="height" name="height" class="form-control" formControlName="height" ngModel />
-      </div>
-      <div>
-        <label for="weight">Weight:</label>
-        <input type="text" id="weight" name="weight" class="form-control" formControlName="weight" ngModel />
-      </div>
-      <div>
-        <label>Gender:</label>
-        <input type="radio" id="male" name="gender" value="Male" formControlName="gender" ngModel /> Male
-        <input type="radio" id="female" name="gender" value="Female" formControlName="gender" ngModel />
-        Female
-        <input type="radio" id="other" name="gender" value="Other" formControlName="gender" ngModel /> Other
-      </div>
-      <div>
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" formControlName="dob" ngModel />
-      </div>
-      <div>
-        <label for="nic">NIC number:</label>
-        <input type="text" id="nic" name="nic" formControlName="nic" ngModel required />
-      </div>
-      <div>
-        <label for="email">Email:</label>
+    </div>
+
+    <div class="row">
+      <!-- Email -->
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">Email:</label>
         <input type="email" id="email" name="email" class="form-control" formControlName="email" ngModel required />
       </div>
-      <div>
-        <label for="contact">Contact Number:</label>
-        <input type="text" id="contact" name="contact" class="form-control" formControlName="contact" ngModel required />
+      
+      <!-- Contact Number -->
+      <div class="col-md-6 mb-3">
+        <label for="contactNo" class="form-label">Contact Number:</label>
+        <input type="text" id="contactNo" name="contactNo" class="form-control" formControlName="contactNo" ngModel required />
       </div>
-      <div>
-        <label for="address">Address:</label>
-        <textarea id="address" name="address" class="form-control" formControlName="address" ngModel></textarea>
+    </div>
+
+    <div class="row">
+      <!-- Date of Birth -->
+      <div class="col-md-6 mb-3">
+        <label for="dob" class="form-label">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" class="form-control" formControlName="dob" ngModel required />
       </div>
 
-      <div class="mb-3 mx-auto">
-        <button type="submit" [disabled]="memberForm.invalid" class="btn btn-primary me-2">{{isEditMode ==
-            true ? 'Update' : 'Save'}}</button>
-        <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+      <!-- NIC Number -->
+      <div class="col-md-6 mb-3">
+        <label for="nicNo" class="form-label">NIC Number:</label>
+        <input type="text" id="nicNo" name="nicNo" class="form-control" formControlName="nicNo" ngModel required />
+      </div>
     </div>
-      <!-- <button type="submit" [disabled]="!memberForm.valid">Add Member</button> -->
-    </form>
-  </div>
-  
+
+    <div class="row">
+      <!-- Age -->
+      <div class="col-md-6 mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input type="number" id="age" name="age" class="form-control" formControlName="age" ngModel required />
+      </div>
+
+      <!-- Height -->
+      <div class="col-md-6 mb-3">
+        <label for="height" class="form-label">Height:</label>
+        <input type="text" id="height" name="height" class="form-control" formControlName="height" ngModel />
+      </div>
+
+      <!-- Weight -->
+      <div class="col-md-6 mb-3">
+        <label for="weight" class="form-label">Weight:</label>
+        <input type="text" id="weight" name="weight" class="form-control" formControlName="weight" ngModel />
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Gender -->
+      <div class="col-md-6 mb-3">
+        <label for="gender" class="form-label">Gender:</label>
+        <select id="gender" class="form-select" formControlName="gender">
+          <option value="" disabled>Select Gender</option>
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+          <option value="2">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Address -->
+      <div class="col-md-12 mb-3">
+        <label for="address" class="form-label">Address:</label>
+        <textarea id="address" name="address" class="form-control" formControlName="address" rows="3" ngModel></textarea>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button type="submit" [disabled]="memberForm.invalid" class="btn btn-primary me-2">
+        {{ isEditMode ? 'Update' : 'Save' }}
+      </button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

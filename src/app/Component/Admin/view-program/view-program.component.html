@@ -1,1 +1,37 @@
-<p>view-program works!</p>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card id-card text-center p-4">
+      <div class="card-body">
+        <div class="profile-pic mb-3">
+
+        </div>
+       
+        <div class="details text-start">
+        
+          <tr *ngFor="let program of programs">
+  
+            <div class="member-details-card">
+              <h2>Subscription Details</h2>
+              <div class="detail-item">
+                <strong>Id:</strong> {{ program.id }}
+              </div>
+              <div class="detail-item">
+                <strong>Name:</strong> {{ program.name }}
+              </div>
+              <div class="detail-item">
+                <strong>Description:</strong> {{ program.description }}
+              </div>
+              <!-- <div class="detail-item">
+                <strong>Age:</strong> {{ program.images }}
+              </div> -->
+              <button class="btn" (click)="onClose()">Okay</button>
+            </div>
+            
+          
+          </tr>
+  
+        </div>
+       
+      </div>
+    </div>
+  </div>

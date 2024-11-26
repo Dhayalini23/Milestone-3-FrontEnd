@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MemberService } from '../../../Services/member.service';
 import { ToastrService } from 'ngx-toastr';
@@ -9,7 +9,7 @@ import { Member } from '../../../Interfaces/member';
   templateUrl: './view-member.component.html',
   styleUrl: './view-member.component.css'
 })
-export class ViewMemberComponent implements OnInit{
+export class ViewMemberComponent {
 
   members: Member[] = [];
   memberid:string|undefined;
@@ -30,13 +30,23 @@ ngOnInit(): void {
     });
   }
 }
-// loadMembers(){
+loadMembers(){
 
-//   this.memberService.getMember().subscribe(data =>{
-//     console.log(data);
+  this.memberService.getMember().subscribe(data =>{
+    console.log(data);
     
-//     this.members = data;
-//   })
-// }
+    this.members = data;
+  })
+}
 
+// @Input() member: any;
+
+// @Output() close = new EventEmitter<void>();
+
+// onClose() {
+//   this.close.emit();
+// }
+onClose(){
+  
+}
 }
