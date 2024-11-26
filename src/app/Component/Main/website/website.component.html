@@ -1,5 +1,7 @@
+<!-- Header Bar -->
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
+        <!-- Gym Title and Logo -->
         <a class="navbar-brand" href="#">
             <div class="d-flex justify-content-between">
                 <div class="d-flex">
@@ -7,32 +9,32 @@
                         class="d-inline-block align-text-top">
                     <h1 class="mt-2">Grandeur Gym</h1>
                     <div class="d-flex">
-                        <div class="">
+                        <!-- Navigation bar -->
                             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                 <div class="container-fluid">
                                     <div class="collapse navbar-collapse " id="navbarNav">
                                         <ul class="navbar-nav mt-3 mr-6">
                                             <li class="nav-item h5">
-                                                <a class="nav-link text-dark" href="#">Home</a>
+                                                <a routerLink=""  routerLinkActive="active" class="nav-link text-dark" href="#">Home</a>
                                             </li>
                                             <li class="nav-item h5">
-                                                <a class="nav-link text-dark" href="#">Gallery</a>
+                                                <a routerLink="gallery" class="nav-link text-dark" href="#">Gallery</a>
                                             </li>
-                                            <li class="nav-item h5">
+                                            <!-- <li class="nav-item h5">
                                                 <a class="nav-link text-dark" href="#">About Us</a>
-                                            </li>
+                                            </li> -->
                                             <li class="nav-item h5">
-                                                <a class="nav-link text-dark" href="#">Contact Us</a>
+                                                <a routerLink="contactUs"class="nav-link text-dark" href="#">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </nav>
-                        </div>
                     </div>
                 </div>
             </div>
         </a>
+        <!-- User and Admin Login Button -->
         <div class="float-md-end me-5">
             <button class="btn btn-outline-secondary " type="button">
                 <h5 class="text-dark">Login</h5>
@@ -40,28 +42,74 @@
         </div>
     </div>
 </nav>
-<router-outlet></router-outlet>
-<footer>
-    <div class="footer">
-    <div class="row">
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-youtube"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
+<main class="mb-5">
+    <router-outlet></router-outlet>
+</main>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white ">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+
+            <!-- Google -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+
+            <!-- Instagram -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-instagram"></i></a>
+
+            <!-- Linkedin -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+
+            <!-- Github -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-github"></i></a>
+        </section>
+        <!-- Section: Text -->
+        <section class="mb-4">
+            <p>
+                "Your fitness journey starts here! At Grandeur Gym, we are dedicated to helping you achieve your health
+                and wellness goals with state-of-the-art facilities, expert trainers, and a supportive community. Join
+                us today and experience the difference! Terms and conditions apply. Contact us for more details."
+            </p>
+        </section>
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">Home</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">Gallery</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">About Us</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">Contact Us</a>
+                </div>
+            </div>
+        </section>
+        <!-- Section: Links -->
     </div>
-    
-    <div class="row">
-    <ul>
-    <li><a href="#">Contact us</a></li>
-    <li><a href="#">Our Services</a></li>
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms & Conditions</a></li>
-    <li><a href="#">Career</a></li>
-    </ul>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">grandeurgym.com</a>
     </div>
-    
-    <div class="row">
-    INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh 
-    </div>
-    </div>
-    </footer>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->

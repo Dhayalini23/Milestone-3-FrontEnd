@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Program } from '../Interfaces/program';
+import { Program, WorkOutProgram } from '../Interfaces/program';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProgramService {
-
+  API:string='http://localhost:5278/api/'
   constructor(private Http:HttpClient) { }
-
+  getAllWorkoutPrograms(){
+    return this.Http.get<WorkOutProgram[]>(this.API+'Admin/GetAllPrograms');
+  }
   getProgram(){
     return this.Http.get<Program[]>('http://localhost:5198/api/Users');
   }

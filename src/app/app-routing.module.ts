@@ -13,9 +13,21 @@ import { OverdueComponent } from './Component/Admin/overdue/overdue.component';
 import { AddEditSubscriptionComponent } from './Component/Admin/add-edit-subscription/add-edit-subscription.component';
 import { ViewMemberComponent } from './Component/Admin/view-member/view-member.component';
 import { WebsiteComponent } from './Component/Main/website/website.component';
+import { HomeComponent } from './Component/Main/home/home.component';
+import { GalleryComponent } from './Component/Main/gallery/gallery.component';
+import { ContactUsComponent } from './Component/Main/contact-us/contact-us.component';
 
 const routes: Routes = [
-  {path:'',component:WebsiteComponent},
+  {
+    path:'GrandeurGym',
+    component:WebsiteComponent,
+    children:[
+      {path:'',component:HomeComponent},
+      {path:'gallery',component:GalleryComponent},
+      {path:'contactUs',component:ContactUsComponent},
+      // {path:'',component:HomeComponent},
+    ]
+  },
   {path:'admin', 
   component:DashboardComponent,
   children:[
@@ -53,6 +65,7 @@ const routes: Routes = [
       {path:'overdue',component:OverdueComponent}
     ]
   },
+  { path: '', redirectTo: '/GrandeurGym', pathMatch: 'full' } 
 ];
 
 @NgModule({
