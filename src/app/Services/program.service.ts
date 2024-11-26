@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Program } from '../Interfaces/program';
+
+import { Program, WorkOutProgram } from '../Interfaces/program';
+=======
+
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,9 +11,15 @@ import { Observable } from 'rxjs';
 })
 export class ProgramService {
 
-  api:string="http://localhost:5278/api/";
-  constructor(private Http:HttpClient) { }
 
+=======
+
+  api:string="http://localhost:5278/api/";
+
+  constructor(private Http:HttpClient) { }
+  getAllWorkoutPrograms(){
+    return this.Http.get<WorkOutProgram[]>(this.api+'Admin/GetAllPrograms');
+  }
   getProgram(){
     return this.Http.get<Program[]>(this.api+'Admin/GetAllPrograms');
 

@@ -8,3 +8,8 @@ export interface Program{
     // creationDate:string;
     
 }
+export interface WorkOutProgram{
+    id:number;
+    name:string;
+    description:string;
+}
