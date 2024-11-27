@@ -4,13 +4,12 @@
         <!-- Gym Title and Logo -->
         <a class="navbar-brand" href="#">
             <div class="d-flex justify-content-between">
-                <div class="d-flex">
-                    <img src="./images/dumbbell-gym-svgrepo-com.svg" alt="" width="100px" height="80px"
-                        class="d-inline-block align-text-top">
+                <!-- <div class="d-flex"> -->
+                    <img src="./images/dumbbell-gym-svgrepo-com.svg" alt="" width="100px" height="80px"class="d-inline-block align-text-top">
                     <h1 class="mt-2">Grandeur Gym</h1>
                     <div class="d-flex">
                         <!-- Navigation bar -->
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                 <div class="container-fluid">
                                     <div class="collapse navbar-collapse " id="navbarNav">
                                         <ul class="navbar-nav mt-3 mr-6">
@@ -20,24 +19,24 @@
                                             <li class="nav-item h5">
                                                 <a routerLink="gallery" class="nav-link text-dark" href="#">Gallery</a>
                                             </li>
-                                            <!-- <li class="nav-item h5">
+                                            <li class="nav-item h5">
                                                 <a class="nav-link text-dark" href="#">About Us</a>
-                                            </li> -->
+                                            </li>
                                             <li class="nav-item h5">
                                                 <a routerLink="contactUs"class="nav-link text-dark" href="#">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                            </nav>
-                    </div>
+                            </nav> -->
+                    <!-- </div> -->
                 </div>
             </div>
         </a>
         <!-- User and Admin Login Button -->
         <div class="float-md-end me-5">
             <button class="btn btn-outline-secondary " type="button">
-                <h5 class="text-dark">Login</h5>
+                <h5 class="text-dark" (click)="Login()" >Login</h5>
             </button>
         </div>
     </div>

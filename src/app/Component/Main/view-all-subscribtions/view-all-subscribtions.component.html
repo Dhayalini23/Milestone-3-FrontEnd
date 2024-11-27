@@ -1,1 +1,21 @@
-<p>view-all-subscribtions works!</p>
+<div class="container text-center" style="text-align: center;">
+    <div class="row" >
+        <div class="col-md-4 col-sm-12 mt-5" *ngFor="let subscription of subscriptions">
+          <div class="card card text-center border-0 shadow rounded-0 p-4" style="max-width: 22rem;height: 300px;">
+            <div class="icon">
+              <img src="./images/dumbell.svg" style="width: 50px;height: 50px;" alt="bumbells" srcset="">
+            </div>
+            <div class="card-body ">
+              <h4 class="card-title fw-bold">{{subscription.title}}</h4>
+              <div class="" style="text-align: left;">
+              <p class="card-text">{{subscription.description}}</p>
+                <!-- <h5 >Available Workout Programs</h5>
+                <div *ngFor="let programs of subscription.programNames" >
+                    <p>{{programs}}</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
