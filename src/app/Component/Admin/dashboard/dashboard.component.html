@@ -32,10 +32,10 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-          <li><a class="nav-link text-white" [routerLink]="['/member']"><i class="bi bi-people fs-3"></i>Members</a></li>
-          <li><a class="nav-link text-white" [routerLink]="['/program']"><i class="bi bi-calendar fs-3"></i>Programs</a></li>
-          <li><a class="nav-link text-white" [routerLink]="['/subscription']"><i class="bi bi-credit-card-2-front fs-3"></i>Subscription</a></li>
-          <li><a class="nav-link text-white" [routerLink]="['/payment']"><i class="bi bi-credit-card-2-front fs-3"></i>Payments</a></li>
+          <li><a class="nav-link text-white" [routerLink]="['/admin']"><i class="bi bi-people fs-3"></i>Members</a></li>
+          <li><a class="nav-link text-white" [routerLink]="['program']"><i class="bi bi-calendar fs-3"></i>Programs</a></li>
+          <li><a class="nav-link text-white" [routerLink]="['subscription']"><i class="bi bi-credit-card-2-front fs-3"></i>Subscription</a></li>
+          <li><a class="nav-link text-white" [routerLink]="['payment']"><i class="bi bi-credit-card-2-front fs-3"></i>Payments</a></li>
         </ul>
         <hr>
       </div>
@@ -43,7 +43,7 @@
   
      <!-- Main Content Area  -->
     <div class="bg"  style="width:100%">
-      <router-outlet></router-outlet>
+      <router-outlet class="m-6"></router-outlet>
     </div>
   </div>
   

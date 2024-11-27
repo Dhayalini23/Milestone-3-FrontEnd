@@ -17,8 +17,11 @@ import { HomeComponent } from './Component/Main/home/home.component';
 import { GalleryComponent } from './Component/Main/gallery/gallery.component';
 import { ContactUsComponent } from './Component/Main/contact-us/contact-us.component';
 import { LoginComponent } from './Component/Main/login/login.component';
+import { UserHomeComponent } from './Component/User/user-home/user-home.component';
+import { UserComponent } from './Component/User/user/user.component';
 
 const routes: Routes = [
+  
   {
     path:'GrandeurGym',
     component:WebsiteComponent,
@@ -30,17 +33,25 @@ const routes: Routes = [
     ]
   },
   {path:'login',component:LoginComponent},
-  {path:'admin', 
-  component:DashboardComponent,
-  children:[
-    {path:'member',component:MemberComponent},
-    {path: 'program', component:ProgramComponent},
-    {path: 'subscription', component: SubscriptionComponent },
-    {path: 'payment', component: PaymentComponent}
+  {
+    path:'admin', 
+    component:DashboardComponent,
+    children:[
+      {path:'',component:MemberComponent},
+      {path: 'program', component:ProgramComponent},
+      {path: 'subscription', component: SubscriptionComponent },
+      {path: 'payment', component: PaymentComponent}
 ]},
 {path:'viewMember/:id', component:ViewMemberComponent},
 {path:'editMember/:id',component:AddEditMemberComponent},
-
+  {
+    path:'user/:id',
+    component:UserComponent,
+    children:[
+      {path:'',component:UserHomeComponent},
+      {path:'userPayment/:id',component:UserHomeComponent},
+    ]
+  },
 
   {path: 'member', 
   component: MemberComponent ,
@@ -49,12 +60,12 @@ const routes: Routes = [
     {path:'editMember/:id',component:AddEditMemberComponent},
     {path:'viewMember/:id', component:ViewMemberComponent}
   ]
-},
-  {path: 'program', 
-  component:ProgramComponent,
-  children:[
-    {path:'add-edit-program',component:AddEditProgramComponent}
-  ]
+// },
+//   {path: 'program', 
+//   component:ProgramComponent,
+//   children:[
+//     {path:'add-edit-program',component:AddEditProgramComponent}
+//   ]
 },
   {path: 'subscription',
    component: SubscriptionComponent,

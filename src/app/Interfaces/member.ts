@@ -1,6 +1,6 @@
 export interface Member{
     filter(arg0: (a: any) => any): Member[];
- id:string;
+ id:number;
  userId:string;
  profileImage:string;
  firstName:string;
@@ -15,7 +15,7 @@ export interface Member{
  contactNo:string;
  address:string;
 }
-export interface User{
-    userId:number;
-    password:string;
-}
+// export interface User{
+//     userId:number;
+//     password:string;
+// }

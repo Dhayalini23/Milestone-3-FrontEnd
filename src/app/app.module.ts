@@ -60,6 +60,7 @@ import { ChangePasswordComponent } from './Component/User/change-password/change
 import { MemberPaymentComponent } from './Component/User/member-payment/member-payment.component';
 import { MemberPayComponent } from './Component/User/member-pay/member-pay.component';
 import { MemberSkippedPaymentComponent } from './Component/User/member-skipped-payment/member-skipped-payment.component';
+import { UserComponent } from './Component/User/user/user.component';
 
 @NgModule({
   declarations: [
@@ -118,6 +119,7 @@ import { MemberSkippedPaymentComponent } from './Component/User/member-skipped-p
       MemberPaymentComponent,
       MemberPayComponent,
       MemberSkippedPaymentComponent,
+      UserComponent,
 
 
   ],
