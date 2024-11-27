@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class MemberComponent implements OnInit {
   members: Member[] = [];
   searchText: any;
+selectedMember: any;
+showMemberDetails: any;
   constructor(private memberService: MemberService, private toastr: ToastrService, private router:Router) {
 
   }
@@ -42,12 +44,16 @@ export class MemberComponent implements OnInit {
       this.members = data;
     })
   }
-
-  onEdit(memberid:string){
-    this.router.navigate([ `editMember/:${memberid}`])
+  onEdit(member: any): void {
+    this.selectedMember = { ...member }; // Clone the member to avoid direct modification
+    console.log('Editing member:', this.selectedMember);
   }
+
+  // onEdit(memberid:string){
+  //   this.router.navigate([ `editMember/${memberid}`])
+  // }
  onView(memberid:string){
-    this.router.navigate([`viewMember/:id${memberid}`])
+    this.router.navigate([`viewMember/id${memberid}`])
  }
 
 }

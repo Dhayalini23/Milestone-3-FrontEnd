@@ -6,10 +6,10 @@ export interface Member{
  firstName:string;
  lastName:string;
  gender:string;
- height:string;
- weight:string;
+ height:number;
+ weight:number;
  email:string;
- age:string;
+ age:number;
  dob:string;
  nicNo:string;
  contactNo:string;
