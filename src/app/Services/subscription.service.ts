@@ -23,6 +23,6 @@ api:string="http://localhost:5278/api/";
     return this.Http.put(this.api+'Admin/UpdateSubscription'+ subscriptionId,subscription);
    }
    getSubscriptionById(subscriptionId : string){
-    return this.Http.get<Subscription>(this.api+'Admin/GetSingleSubscription' + subscriptionId);
+    return this.Http.get<any>(this.api+'Admin/GetSingleSubscription' + subscriptionId);
   }
 }

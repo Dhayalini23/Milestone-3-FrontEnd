@@ -12,34 +12,34 @@ import { ProgramService } from '../../../Services/program.service';
 })
 export class ViewProgramComponent {
   programs: Program[] = [];
-  programid:string|undefined;
-constructor(private route: ActivatedRoute, private router: Router,private programService :ProgramService,private toastr:ToastrService){
-  const id = this.route.snapshot.paramMap.get('id');
-  console.log(id);
-  this.programid = String(id);
-}
-
-
-ngOnInit(): void {
-  if(this.programid != undefined){
-    this.programService.getprogramById(this.programid).subscribe(data => {
-      data.name = new Date(data.name).toISOString().slice(0, 10);
-      console.log(data)
-    }, (error) => {
-      this.toastr.warning("Program is not found!: " + error.error.title);
-    });
+  programid: string | undefined;
+  meprogram!: Program;
+  constructor(private route: ActivatedRoute, private router: Router, private programService: ProgramService, private toastr: ToastrService) {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.programid = String(id);
   }
-}
-loadMembers(){
 
-  this.programService.getProgram().subscribe(data =>{
-    console.log(data);
-    
-    this.programs = data;
-  })
-}
 
-onClose(){
-  
-}
+  ngOnInit(): void {
+    if (this.programid != undefined) {
+      this.programService.getprogramById(this.programid).subscribe(data => {
+       // data.name = new Date(data.name).toISOString().slice(0, 10);
+        console.log(data);
+        this.meprogram = data;
+      }, (error) => {
+        this.toastr.warning("Program is not found!: " + error.error.title);
+      });
+    }
+  }
+  loadMembers() {
+    this.programService.getProgram().subscribe(data => {
+      console.log(data);
+      this.programs = data;
+    })
+  }
+
+  onClose() {
+
+  }
 }

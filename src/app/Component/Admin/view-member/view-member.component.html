@@ -2,17 +2,17 @@
   <div class="card id-card text-center p-4">
     <div class="card-body">
       <div class="profile-pic mb-3">
+        <h2>User Details</h2>
         <img src="profile-placeholder.png" alt="Profile Picture" class="img-fluid rounded-circle">
       </div>
-     
-      <div class="details text-start">
-      
-        <tr *ngFor="let member of members">
-
+      <div *ngIf="member" class="details text-start">
+        <tr >
           <div class="member-details-card">
-            <h2>User Details</h2>
-            <div class="detail-item">
+            <!-- <div class="detail-item">
               <strong>Id:</strong> {{ member.id }}
+            </div> -->
+            <div class="detail-item">
+              <strong>User Id:</strong> {{ member.userId }}
             </div>
             <div class="detail-item">
               <strong>Name:</strong> {{ member.firstName }}{{ member.lastName }}
@@ -46,57 +46,8 @@
             </div>
             <button class="btn" (click)="onClose()">Okay</button>
           </div>
-          
-          <!-- <td>{{member.userId}}</td>
-          <td>{{member.firstName}} {{member.lastName}}</td>
-          <td>{{member.email}}</td>
-          <td>{{member.contactNo}}</td>
-          <td> {{member.address}}</td>
-          <td> -->
         </tr>
-
-      </div>
-      <div class="barcode mt-3">
-        <img src="barcode-placeholder.png" alt="Barcode" class="img-fluid">
       </div>
     </div>
   </div>
 </div>
-
-<!-- <div class="member-details-card">
-  <h2>User Details</h2>
-  <div class="detail-item">
-    <strong>Id:</strong> {{ member.id }}
-  </div>
-  <div class="detail-item">
-    <strong>Name:</strong> {{ member.name }}
-  </div>
-  <div class="detail-item">
-    <strong>NIC:</strong> {{ member.nic }}
-  </div>
-  <div class="detail-item">
-    <strong>Age:</strong> {{ member.age }}
-  </div>
-  <div class="detail-item">
-    <strong>Gender:</strong> {{ member.gender }}
-  </div>
-  <div class="detail-item">
-    <strong>Date of Birth:</strong> {{ member.dateOfBirth }}
-  </div>
-  <div class="detail-item">
-    <strong>Height:</strong> {{ member.height }} cm
-  </div>
-  <div class="detail-item">
-    <strong>Weight:</strong> {{ member.weight }} kg
-  </div>
-  <div class="detail-item">
-    <strong>Email:</strong> {{ member.email }}
-  </div>
-  <div class="detail-item">
-    <strong>Address:</strong> {{ member.address }}
-  </div>
-  <div class="detail-item">
-    <strong>Contact No.:</strong> {{ member.contactNo }}
-  </div>
-  <button class="btn" (click)="onClose()">Okay</button>
-</div> -->

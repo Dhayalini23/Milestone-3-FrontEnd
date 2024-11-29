@@ -12,46 +12,47 @@ import { Router } from '@angular/router';
 export class MemberComponent implements OnInit {
   members: Member[] = [];
   searchText: any;
-selectedMember: any;
-showMemberDetails: any;
-  constructor(private memberService: MemberService, private toastr: ToastrService, private router:Router) {
+  selectedMember: any;
+  showMemberDetails: any;
 
-  }
+  constructor(private memberService: MemberService, 
+    private toastr: ToastrService, 
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
     this.loadMembers();
   }
 
   close() { }
-  onDelete(memberId: string) {
+  onDelete(memberId: number) {
 
     if (confirm("Do you want to delete this member?")) {
       this.memberService.deleteMember(memberId).subscribe(data => {
-      this.toastr.success('Task is deleted',"Deleted",{
+      this.toastr.success('Member is deleted',"Deleted",{
         timeOut:10000,
         closeButton:true
       });
-        this.loadMembers();
-        
+        this.loadMembers();  
+      }, error => {
+        this.toastr.error("Failed to delete member", "Error");
       });
     }
   }
   loadMembers(){
 
     this.memberService.getMember().subscribe(data =>{
-      console.log(data);
-      
+      console.log(data);  
       this.members = data;
-    })
+    }, error => {
+      this.toastr.error("Failed to load members", "Error");
+    });
   }
   onEdit(member: any): void {
-    this.selectedMember = { ...member }; // Clone the member to avoid direct modification
+    this.selectedMember = { ...member }; 
     console.log('Editing member:', this.selectedMember);
   }
 
-  // onEdit(memberid:string){
-  //   this.router.navigate([ `editMember/${memberid}`])
-  // }
  onView(memberid:string){
     this.router.navigate([`viewMember/id${memberid}`])
  }

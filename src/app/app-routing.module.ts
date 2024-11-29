@@ -19,6 +19,8 @@ import { ContactUsComponent } from './Component/Main/contact-us/contact-us.compo
 import { LoginComponent } from './Component/Main/login/login.component';
 import { UserHomeComponent } from './Component/User/user-home/user-home.component';
 import { UserComponent } from './Component/User/user/user.component';
+import { ViewProgramComponent } from './Component/Admin/view-program/view-program.component';
+import { ViewSubscriptionComponent } from './Component/Admin/view-subscription/view-subscription.component';
 
 const routes: Routes = [
   
@@ -37,13 +39,24 @@ const routes: Routes = [
     path:'admin', 
     component:DashboardComponent,
     children:[
-      {path:'',component:MemberComponent},
-      {path: 'program', component:ProgramComponent},
-      {path: 'subscription', component: SubscriptionComponent },
+      {path:'member' , children:[
+         {path:'',component:MemberComponent },
+        {path :'editMember/:id',component:AddEditMemberComponent},
+        {path:'viewMember/:id',component:ViewMemberComponent}
+      ] },
+       {path:'program',children:[
+        {path:'',component:ProgramComponent },
+        {path :'editProgram/:id',component:AddEditProgramComponent},
+        {path:'viewProgram/:id',component:ViewProgramComponent}
+       ]},
+       {path: 'subscription',children:[
+        {path:'',component:SubscriptionComponent },
+        {path :'editSubscription/:id',component:AddEditSubscriptionComponent},
+        {path:'viewSubscription/:id',component:ViewSubscriptionComponent}
+      ]},
       {path: 'payment', component: PaymentComponent}
 ]},
-{path:'viewMember/:id', component:ViewMemberComponent},
-{path:'editMember/:id',component:AddEditMemberComponent},
+
   {
     path:'user/:id',
     component:UserComponent,
@@ -52,28 +65,6 @@ const routes: Routes = [
       {path:'userPayment/:id',component:UserHomeComponent},
     ]
   },
-
-  {path: 'member', 
-  component: MemberComponent ,
-  children:[
-    {path:'addMember',component:AddEditMemberComponent},
-    {path:'editMember/:id',component:AddEditMemberComponent},
-    {path:'viewMember/:id', component:ViewMemberComponent}
-  ]
-// },
-//   {path: 'program', 
-//   component:ProgramComponent,
-//   children:[
-//     {path:'add-edit-program',component:AddEditProgramComponent}
-//   ]
-},
-  {path: 'subscription',
-   component: SubscriptionComponent,
-   children:[
-    {path:'add-edit-subscription',component:AddEditSubscriptionComponent}
-   ]
-
-   },
 
   {path: 'payment',
    component: PaymentComponent,

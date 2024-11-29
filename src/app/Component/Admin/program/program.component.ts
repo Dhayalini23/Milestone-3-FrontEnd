@@ -9,53 +9,14 @@ import { Program } from '../../../Interfaces/program';
   templateUrl: './program.component.html',
   styleUrl: './program.component.css'
 })
-// export class ProgramComponent implements OnInit {
 
-//   programs: Program[] = [];
-//   searchText: any;
-//   constructor(private programService: ProgramService, private toastr: ToastrService, private router:Router) {
-//     console.log("test");
-
-//   }
-
-//   ngOnInit(): void {
-//     this.loadProgram();
-//   }
-
-//   close() { }
-//   onDelete(programId: number) {
-
-//     if (confirm("Do you want to delete this member?")) {
-//       this.programService.deleteProgram(programId).subscribe(data => {
-//       this.toastr.success('Task is deleted',"Deleted",{
-//         timeOut:10000,
-//         closeButton:true
-//       });
-//         this.loadProgram();
-        
-//       });
-//     }
-//   }
-//   loadProgram(){
-
-//     this.programService.getProgram().subscribe(data =>{
-//       console.log(data)
-//       this.programs = data;
-//     })
-//   }
-
-//   onEdit(programid:number){
-//     console.log(programid);
-//     this.router.navigate(['user-add',programid])
-//   }
-
-// }
 
 export class ProgramComponent implements OnInit {
 
   programs: Program[] = [];
   filteredPrograms: Program[] = []; 
-  searchText: string = '';  
+  searchText: string = '';
+
   constructor(
     private programService: ProgramService,
     private toastr: ToastrService,
@@ -69,7 +30,7 @@ export class ProgramComponent implements OnInit {
 
   loadPrograms() {
     this.programService.getProgram().subscribe(data => {
-      console.log("asaaaaa"+data);
+      console.log(data);
       this.programs = data;     
       // this.filteredPrograms = data; 
     }, error => {
@@ -94,9 +55,12 @@ export class ProgramComponent implements OnInit {
 
   onEdit(programId: string) {
     console.log("Editing Program with ID: ", programId);
-    this.router.navigate(['/program-add-edit-program', programId]);
+    this.router.navigate(['/program/editProgram', programId]);
   }
 
+  onView(programid:string){
+    this.router.navigate([`viewProgram/id${programid}`])
+ }
   
   onSearch() {
     if (this.searchText) {
@@ -108,4 +72,5 @@ export class ProgramComponent implements OnInit {
       this.filteredPrograms = [...this.programs]; 
     }
   }
+  
 }
