@@ -58,13 +58,6 @@ export class AddEditMemberComponent {
         console.log(data);
         console.log('Received member data:', this.memberData);
         this.memberForm.patchValue(data);
-        // this.memberForm.patchValue({
-        //   id: data.id,
-        //   // name: data.name,
-        //   email: data.email,
-        //   // password: data.password,
-        //   phone: data.contactNo,
-        // })
       }, error => {
         this.toastr.error("Member is not found");
       });
@@ -88,8 +81,6 @@ export class AddEditMemberComponent {
         this.router.navigate(["/members"]);
       });
     }
-
-
   }
   saveChanges(): void {
     console.log('Updated member data:', this.memberData);

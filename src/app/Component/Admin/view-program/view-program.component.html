@@ -3,23 +3,21 @@
     <div class="card id-card text-center p-4">
       <div class="card-body">
         <div class="profile-pic mb-3">
-
-        </div>
-       
-        <div class="details text-start">
+        </div>    
+        <div  class="details text-start">
         
-          <tr *ngFor="let program of programs">
+          <tr *ngIf="meprogram">
   
             <div class="member-details-card">
-              <h2>Subscription Details</h2>
+              <h2>Program Details</h2>
               <div class="detail-item">
-                <strong>Id:</strong> {{ program.id }}
+                <strong>Id:</strong> {{ meprogram.id }}
               </div>
               <div class="detail-item">
-                <strong>Name:</strong> {{ program.name }}
+                <strong>Name:</strong> {{ meprogram.name }}
               </div>
               <div class="detail-item">
-                <strong>Description:</strong> {{ program.description }}
+                <strong>Description:</strong> {{ meprogram.description }}
               </div>
               <!-- <div class="detail-item">
                 <strong>Age:</strong> {{ program.images }}

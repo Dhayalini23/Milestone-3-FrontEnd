@@ -13,6 +13,7 @@ export class ViewMemberComponent {
 
   members: Member[] = [];
   memberid:string|undefined;
+  member! : Member;
 constructor(private route: ActivatedRoute, private router: Router,private memberService :MemberService,private toastr:ToastrService){
   const id = this.route.snapshot.paramMap.get('id');
   console.log(id);
@@ -24,17 +25,16 @@ ngOnInit(): void {
   if(this.memberid != undefined){
     this.memberService.getMemberById(this.memberid).subscribe(data => {
       data.dob = new Date(data.dob).toISOString().slice(0, 10);
-      console.log(data)
+      console.log(data);
+      this.member = data;
     }, (error) => {
       this.toastr.warning("Member is not found!: " + error.error.title);
     });
   }
 }
 loadMembers(){
-
   this.memberService.getMember().subscribe(data =>{
     console.log(data);
-    
     this.members = data;
   })
 }

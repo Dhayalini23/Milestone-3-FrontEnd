@@ -20,3 +20,9 @@ export interface SkippedPayment{
     endDate:string;
     reason:string;
 }
+export interface Overdue{
+    memberId:string;
+    programId:string;
+    subscriptionType:string;
+    dueDate:string;
+}

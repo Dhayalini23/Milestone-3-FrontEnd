@@ -28,7 +28,7 @@ export class MemberService {
   createMember(member: any) {
     return this.Http.post(this.api+'Admin/Add-User', member);
   }
-  deleteMember(memberId: string) {
+  deleteMember(memberId: number) {
     return this.Http.delete(this.api+'Admin/Delete-Member/' + memberId);
   }
   updateMember(member: Member, memberId: string) {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProgramService } from '../../../Services/program.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './add-edit-program.component.css'
 })
 export class AddEditProgramComponent {
-
+  @Input() programData: any;
   programForm: FormGroup;
   isEditMode = false;
   programId: string
@@ -28,8 +28,6 @@ export class AddEditProgramComponent {
       id:[''],
       name: ['', [Validators.required]],
       description: [''],
-      // programStatus: [''],
-      // creationDate: ['', [Validators.required]],
     });
 
 
@@ -48,8 +46,6 @@ export class AddEditProgramComponent {
           id: data.id,
           programName: data.name,
           description: data.description,
-          // programStatus: data.programStatus,
-          // creationDate: data.creationDate,
         })
       }, error => {
         this.toastr.error("Program is not found");
@@ -72,9 +68,13 @@ export class AddEditProgramComponent {
         this.router.navigate(["/programs"]);
       });
     }
-
-
   }
+  saveChanges(): void {
+    console.log('Updated program data:', this.programData);
+    
+    const modalElement = document.getElementById('exampleModal') as any;
+}
+
 
   cancel() {
     this.programForm.reset();

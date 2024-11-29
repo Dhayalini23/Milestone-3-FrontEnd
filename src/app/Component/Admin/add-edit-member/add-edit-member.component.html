@@ -2,6 +2,12 @@
   <h3 class="text-dark text-center">{{ isEditMode ? 'Update User' : 'Add New Member' }}</h3>
   <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
     <div class="row">
+
+       <!-- First Name -->
+       <div class="col-md-6 mb-3">
+        <label for="userId" class="form-label">User Id:</label>
+        <input type="text" id="userId" name="userId" class="form-control" formControlName="userId" ngModel required />
+      </div>
       <!-- First Name -->
       <div class="col-md-6 mb-3">
         <label for="firstName" class="form-label">First Name:</label>
@@ -85,7 +91,7 @@
     </div>
 
     <div class="d-flex justify-content-center">
-      <button type="submit" [disabled]="memberForm.invalid" class="btn btn-primary me-2">
+      <button type="submit" [disabled]="memberForm.invalid" class="btn btn-success me-2">
         {{ isEditMode ? 'Update' : 'Save' }}
       </button>
       <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>

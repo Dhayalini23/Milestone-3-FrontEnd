@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SubscriptionService } from '../../../Services/subscription.service';
@@ -9,7 +9,7 @@ import { Subscription } from '../../../Interfaces/subscription';
   templateUrl: './subscription.component.html',
   styleUrl: './subscription.component.css'
 })
-export class SubscriptionComponent {
+export class SubscriptionComponent implements OnInit{
   
   subscriptionData!: Subscription[];
   filteredSubscription: Subscription[] = []; 
@@ -55,8 +55,8 @@ export class SubscriptionComponent {
   }
 
   onEdit(subscriptionId: string) {
-    console.log("Editing Program with ID: ", subscriptionId);
-    this.router.navigate(['/program-add-edit-program', subscriptionId]);
+    console.log("Editing Subscription with ID: ", subscriptionId);
+    this.router.navigate(['/editSubscription', subscriptionId]);
   }
 
   
@@ -70,4 +70,5 @@ export class SubscriptionComponent {
       this.filteredSubscription = [...this.subscriptionData]; 
     }
   }
+  
 }

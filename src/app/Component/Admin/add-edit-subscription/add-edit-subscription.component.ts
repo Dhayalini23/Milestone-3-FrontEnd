@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubscriptionComponent } from '../subscription/subscription.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { SubscriptionService } from '../../../Services/subscription.service';
 })
 export class AddEditSubscriptionComponent  {
 
-
+  @Input() subscriptionData: any;
   subscriptionForm: FormGroup;
   isEditMode = false;
   subscriptionId: string
@@ -66,14 +66,16 @@ export class AddEditSubscriptionComponent  {
         this.router.navigate(["/subscriptions"]);
       });
     } else {
-      // console.log(program)
       this.subscriptionService.createSubscription(subscription).subscribe(data => {
         this.toastr.success("Subscription is created successfully");
         this.router.navigate(["/subscriptions"]);
       });
     }
   }
-
+  saveChanges(): void {
+    console.log('Updated subscription data:', this.subscriptionData);   
+    const modalElement = document.getElementById('exampleModal') as any;
+}
   cancel() {
     this.subscriptionForm.reset();
   }

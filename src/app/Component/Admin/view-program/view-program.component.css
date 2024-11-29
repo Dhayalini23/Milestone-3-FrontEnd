@@ -1,0 +1,62 @@
+body {
+    background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+    font-family: Arial, sans-serif;
+  }
+  
+  .id-card {
+    width: 350px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-pic img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #007bff;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .details p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .barcode img {
+    width: 100%;
+    height: auto;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .detail-item {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  strong {
+    color: black;
+  }
+  
+  .btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color:green;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #00b5cc;
+  }
+  
