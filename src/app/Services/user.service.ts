@@ -6,10 +6,10 @@ import { Member } from '../Interfaces/member';
   providedIn: 'root'
 })
 export class UserService {
-  memberId:number|undefined;
+  memberId:number=0;
   api:string="http://localhost:5278/api/";
   constructor(private Http:HttpClient) { }
   getUserDetails(userId:string){
-    return this.Http.get<Member>(this.api+'Admin/Admin/Get-Member-By-UserId/'+userId);
+    return this.Http.get<Member>('http://localhost:5278/api/Admin/Get-Member-By-UserId/'+userId);
   }
 }
