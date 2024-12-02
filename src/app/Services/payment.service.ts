@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Payment } from '../Interfaces/payment';
+import { Payment, PaymentHistory, SkippedPayment, UserPayment } from '../Interfaces/payment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService {
-  api:string="http://localhost:5278/api/";
+  api:string="http://localhost:5278/api/Payment/";
   constructor(private Http:HttpClient) { }
 
   getPayment(){
@@ -23,5 +23,14 @@ export class PaymentService {
    }
    getPaymentById(paymentId : string){
     return this.Http.get<any>(this.api+'' + paymentId);
+  }
+  getUserPayment(memberId : string){
+    return this.Http.get<UserPayment[]>(this.api+'Get-Member-Payment/'+memberId)
+  }
+  getUserSkippedPayment(memberId : string){
+    return this.Http.get<SkippedPayment[]>(this.api+'Get-Member-Skipped-Payment/'+memberId)
+  }
+  getUserPaymentHistory(memberId : string){
+    return this.Http.get<PaymentHistory[]>(this.api+'Get-Member-All-Payment/'+memberId)
   }
 }

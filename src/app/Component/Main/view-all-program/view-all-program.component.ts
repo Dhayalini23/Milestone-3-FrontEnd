@@ -35,8 +35,7 @@ export class ViewAllProgramComponent implements OnInit {
       });
     }else{
       this.programService.getAllWorkoutPrograms().subscribe(data =>{
-        console.log(data);
-        
+        console.log(data);       
         this.workoutPrograms = data;
     })
     }

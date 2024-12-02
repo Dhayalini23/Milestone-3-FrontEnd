@@ -10,4 +10,7 @@ export class EnrollmentService {
   getEnrollablePrograms(memberId : number){
     return this.Http.get<any>(this.api+'Get-Member-Enrollable-Programs/'+memberId );
   }
+  getMemberEnrolledPrograms(memberId:number){
+    return this.Http.get<any>(this.api+`Get-Member-Enrolled-Programs/`+memberId)
+  }
 }
