@@ -43,10 +43,8 @@ export class LoginComponent {
           })
         }else if(Role="Member"){
           this.userService.getUserDetails(id).subscribe(data => {
-            console.log("bjh")
             this.member=data;
-            this.userService.memberId=this.member.id;
-            console.log(this.userService.memberId)
+            localStorage.setItem('UserId',this.member.id.toString())
           });
           this.route.navigate([`/user/:`+id]).catch((error) => {
             console.error("Navigation error: ", error);

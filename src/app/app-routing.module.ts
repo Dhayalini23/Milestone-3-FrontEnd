@@ -21,6 +21,7 @@ import { UserHomeComponent } from './Component/User/user-home/user-home.componen
 import { UserComponent } from './Component/User/user/user.component';
 import { ViewProgramComponent } from './Component/Admin/view-program/view-program.component';
 import { ViewSubscriptionComponent } from './Component/Admin/view-subscription/view-subscription.component';
+import { MemberPaymentComponent } from './Component/User/member-payment/member-payment.component';
 
 const routes: Routes = [
   
@@ -62,7 +63,7 @@ const routes: Routes = [
     component:UserComponent,
     children:[
       {path:'',component:UserHomeComponent},
-      {path:'userPayment/:id',component:UserHomeComponent},
+      {path:'userPayment',component:MemberPaymentComponent},
     ]
   },
 

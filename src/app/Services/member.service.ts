@@ -37,4 +37,7 @@ export class MemberService {
   getMemberById(memberId: string) {
     return this.Http.get<Member>(this.api+'Admin/Get-Single-Member' + memberId);
   }
+  getSingleMemberById(memberId: number) {
+    return this.Http.get<Member>(this.api+'Admin/Get-Single-Member' + memberId);
+  }
 }

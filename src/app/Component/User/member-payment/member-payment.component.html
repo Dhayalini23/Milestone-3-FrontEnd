@@ -1,1 +1,52 @@
-<p>member-payment works!</p>
+
+<div style="margin-left: 100px;margin-right: 100px;">
+    <div class="m-3">
+        <h1 class="text-danger">User Payment History</h1>
+    </div>
+    <div class="">
+        <table class="table table-hover  table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Details</th>
+                <th scope="col">Amount (Rs)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let payment of Payments; let i = index">
+                <!-- <tr> -->
+                <tr [ngClass]="{'refund-red': payment.isRefund, 'refund-black': !payment.isRefund}">
+                  <th scope="row">{{ i }}</th>
+                  <td>{{ payment.date | date: 'mediumDate' }}</td>
+                  <td>{{ payment.reason }}</td>
+                  <td>{{ payment.amount }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+    </div>
+    <section>
+      <h3 class="text-danger">Skipped Payments</h3>
+      <div class="">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Program Name</th>
+              <th scope="col">Reason</th>
+              <th scope="col">Sart Date</th>
+              <th scope="col">End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let payment of SkippedPayments">
+              <td>{{payment.programName}}</td>
+              <td>{{payment.reason}}</td>
+              <td>{{payment.startDate | date:'mediumDate' }}</td>
+              <td>{{payment.endDate | date:'mediumDate' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+</div>

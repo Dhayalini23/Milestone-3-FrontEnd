@@ -4,13 +4,67 @@
             <img src="images/profile-circle-svgrepo-com.svg" style="width: 300px; " alt="profile" srcset="">
         </div>
         <div class="col-md-8 col-sm-12 ga-maamli-regular">
-            <h1 class="anton-regular">User Id</h1>
-            <p>Name :</p>
-            <p>Age :</p>
-            <p>Gender :</p>
-            <p>Contact No :</p>
-            <p>Email :</p>
-            <button>View More Details</button>
+            <h1 class="anton-regular">User Id :{{member.userId}}</h1>
+            <p>Name : {{member.firstName}} {{member.lastName}}</p>
+            <p>Age :{{member.age}}</p>
+            <p>Gender :{{member.gender}}</p>
+            <p>Contact No :{{member.contactNo}}</p>
+            <p>Email :{{member.email}}</p>
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                View More
+              </button>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{userId}}'s Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+            <img src="images/profile-circle-svgrepo-com.svg" style="width: 200px; " alt="profile" srcset="" >
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>Name : {{member.firstName}} {{member.lastName}}</p>
+                    <p>Age :{{member.age}}</p>
+                    <p>Gender :{{member.gender}}</p>
+                    <p>DOB :{{member.dob | date:'mediumDate'}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <p>Contact No :{{member.contactNo}}</p>
+                    <p>Email :{{member.email}}</p>
+                    <p>NIC number :{{member.nicNo}}</p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>Height :{{member.height}}</p>
+                    <p>weight :{{member.weight}}</p>
+                    <p>Address :{{member.address}}</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center m-5">
+    <h1 class="text-danger mt-2">Our Services You Might Like</h1>
+    <hr style="border: none; height: 3px; background-color: red; width: 80%; margin: 0 auto;">
+    <app-view-all-program></app-view-all-program>
+  </div>
+  <div class="text-center m-5">
+    <h1 class="text-danger mt-2">Your Enrollments</h1>
+    <hr style="border: none; height: 3px; background-color: red; width: 80%; margin: 0 auto;">
+    <app-enrolled-programs></app-enrolled-programs>
+  </div>
