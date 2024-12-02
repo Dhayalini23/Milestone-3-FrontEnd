@@ -26,9 +26,7 @@ import { SkippedPaymentComponent } from './Component/Admin/skipped-payment/skipp
 import { AdminMessageComponent } from './Component/Admin/admin-message/admin-message.component';
 import { ViewUserMessageComponent } from './Component/Admin/view-user-message/view-user-message.component';
 import { SendEmailComponent } from './Component/Admin/send-email/send-email.component';
-import { ProgramReportComponent } from './Component/Admin/program-report/program-report.component';
 import { FinancialReportComponent } from './Component/Admin/financial-report/financial-report.component';
-import { EarlyFinancialReportComponent } from './Component/Admin/early-financial-report/early-financial-report.component';
 import { MonthlyFinancialReportComponent } from './Component/Admin/monthly-financial-report/monthly-financial-report.component';
 import { MemberReportComponent } from './Component/Admin/member-report/member-report.component';
 import { RiviewReportComponent } from './Component/Admin/riview-report/riview-report.component';
@@ -61,6 +59,7 @@ import { MemberPaymentComponent } from './Component/User/member-payment/member-p
 import { MemberPayComponent } from './Component/User/member-pay/member-pay.component';
 import { MemberSkippedPaymentComponent } from './Component/User/member-skipped-payment/member-skipped-payment.component';
 import { UserComponent } from './Component/User/user/user.component';
+import { WorkoutProgramReportComponent } from './Component/Admin/workout-program-report/workout-program-report.component';
 
 @NgModule({
   declarations: [
@@ -88,9 +87,7 @@ import { UserComponent } from './Component/User/user/user.component';
     AdminMessageComponent,
     ViewUserMessageComponent,
     SendEmailComponent,
-    ProgramReportComponent,
     FinancialReportComponent,
-    EarlyFinancialReportComponent,
     MonthlyFinancialReportComponent,
     MemberReportComponent,
     RiviewReportComponent,
@@ -111,7 +108,6 @@ import { UserComponent } from './Component/User/user/user.component';
     LoginComponent,
     UserHomeComponent,
     MemberDetailsComponent,
-
     AddReviewComponent,
       NavigationComponent,
       EnrolledProgramsComponent,
@@ -120,6 +116,7 @@ import { UserComponent } from './Component/User/user/user.component';
       MemberPayComponent,
       MemberSkippedPaymentComponent,
       UserComponent,
+      WorkoutProgramReportComponent,
 
 
   ],
