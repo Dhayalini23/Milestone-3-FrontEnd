@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   
 })
 export class DashboardComponent {
+  isCollapsed = false;
 
+  toggleSidebar(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
   
 }

@@ -1,6 +1,7 @@
  <div class="container">
     <div class="card shadow p-3 mb-5 bg-white rounded">
       <div class="card-body">  
+        <h2>Programs</h2>
         <div class="d-flex justify-content-between mb-3 mt5">
           <div class="p-2">  
             <input type="text" class="form-control" placeholder="Search Program..." [(ngModel)]="searchText" (input)="onSearch()">
@@ -12,8 +13,6 @@
             <div class="modal fade p-0 m-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                  <div class="modal-header">
-                  </div>
                   <div class="modal-body">
                   <app-add-edit-program></app-add-edit-program>
                   </div>
@@ -24,7 +23,7 @@
         </div>
       </div>    
       <div>
-        <table class="table table-striped">
+        <table class="table table-dark table-striped">
           <thead>
             <tr>
               <th>ProgramID</th>

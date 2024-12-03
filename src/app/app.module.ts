@@ -28,7 +28,6 @@ import { ViewUserMessageComponent } from './Component/Admin/view-user-message/vi
 import { SendEmailComponent } from './Component/Admin/send-email/send-email.component';
 import { ProgramReportComponent } from './Component/Admin/program-report/program-report.component';
 import { FinancialReportComponent } from './Component/Admin/financial-report/financial-report.component';
-import { EarlyFinancialReportComponent } from './Component/Admin/early-financial-report/early-financial-report.component';
 import { MonthlyFinancialReportComponent } from './Component/Admin/monthly-financial-report/monthly-financial-report.component';
 import { MemberReportComponent } from './Component/Admin/member-report/member-report.component';
 import { RiviewReportComponent } from './Component/Admin/riview-report/riview-report.component';
@@ -90,7 +89,6 @@ import { UserComponent } from './Component/User/user/user.component';
     SendEmailComponent,
     ProgramReportComponent,
     FinancialReportComponent,
-    EarlyFinancialReportComponent,
     MonthlyFinancialReportComponent,
     MemberReportComponent,
     RiviewReportComponent,
@@ -113,13 +111,13 @@ import { UserComponent } from './Component/User/user/user.component';
     MemberDetailsComponent,
 
     AddReviewComponent,
-      NavigationComponent,
-      EnrolledProgramsComponent,
-      ChangePasswordComponent,
-      MemberPaymentComponent,
-      MemberPayComponent,
-      MemberSkippedPaymentComponent,
-      UserComponent,
+    NavigationComponent,
+    EnrolledProgramsComponent,
+    ChangePasswordComponent,
+    MemberPaymentComponent,
+    MemberPayComponent,
+    MemberSkippedPaymentComponent,
+    UserComponent,
 
 
   ],

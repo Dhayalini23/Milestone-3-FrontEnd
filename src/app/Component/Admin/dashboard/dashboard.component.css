@@ -1,45 +1,113 @@
 
-   * {
+   * * {
     font-family: "Ubuntu", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  .purple-sidebar {
-    background-color:black;
+  /* Sidebar styles */
+  .sidebar {
     width: 280px;
     height: 100vh;
     padding: 20px;
     color: white;
+    overflow: hidden; /* Prevent overflow for smooth transition */
+    transition: width 0.3s ease; /* Smooth transition for width */
   }
- 
-  .purple-sidebar .nav-link {
-    color: white;
+  
+  .sidebar.collapsed {
+    width: 80px; /* Icon-only width */
+  }
+  
+  /* Hide text in collapsed mode */
+  .sidebar .text {
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide text */
+  }
+  
+  .sidebar.collapsed .text {
+    display: none; /* Hide text */
+  }
+  
+  /* Nav link base styles */
+  .sidebar .nav-link {
     text-decoration: none;
-    padding: 20px;
-    display: flex;
-    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   }
-
-  .bg{
-
+  
+  .sidebar .nav-link i {
+    margin-right: 0; /* Adjust for icon-only mode */
+    transition: margin-right 0.3s ease;
+  }
+  
+  /* Hover and active effects */
+  .sidebar .nav-link:hover {
+    transform: scale(1.05);
+    background-color: #6c757d;
+    color: #f8f9fa;
+  }
+  
+  /* Logout link specific styles */
+  .sidebar .logout-link {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .sidebar .logout-link:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    color: darkred;
+  }
+  
+  /* Toggle button */
+  .toggle-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+    }
+  
+    .sidebar .nav-link {
+      padding: 15px;
+    }
+  }
+  
+  
+  
+  .bg {
+  
     background-image: url('/bg1.jpg');
     background-position: center;
     background-size: contain;
     background-blend-mode: overlay;
   
-   
-    }
-    div{
-      background: transparent;
-    }
-  @media (max-width: 768px) {
-   
+  
   }
   
- 
-  .top-app-bar {
+  div {
+    background: transparent;
+  }
+  
+  @media (max-width: 768px) {}
+  
+  
+  /* .top-app-bar {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
@@ -57,11 +125,9 @@
     background-color: #383838;
     border-radius: 5px;
   }
- 
+   */
   
   .router-outlet {
     width: 100%;
     padding: 20px;
   }
-  
-  
