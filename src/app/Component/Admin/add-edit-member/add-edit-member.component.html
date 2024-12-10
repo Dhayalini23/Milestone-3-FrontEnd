@@ -1,6 +1,10 @@
 <div class="container mt-4">
+  <div class="modal-footer">
+ <a href=""  class="fs-4" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i></a>
+  </div>
   <h3 class="text-dark text-center">{{ isEditMode ? 'Update User' : 'Add New Member' }}</h3>
   <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+   
     <div class="row">
 
        <!-- First Name -->

@@ -1,13 +1,10 @@
 <div class="card shadow bg-white rounded  col d-flex justify-content-center">
+    <a href=""  class="fs-4" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i></a>
     <div class="card-header">
         <h3 class="text-dark">{{isEditMode == true ? 'Update Program' : 'Add New program' }}</h3>
     </div>
     <div class="card-body" style="width: 400px;">
         <form [formGroup]="programForm" (ngSubmit)="onSubmit()">
-            <!-- <div class="mb-3">
-                <label for="id" class="form-label">ProgramID</label>
-                <input type="text" class="form-control" id="id" formControlName="id">
-            </div> -->
             <div class="mb-3">
                 <label for="programName" class="form-label">ProgramName</label>
                 <input type="text" class="form-control" id="programName" formControlName="name">

@@ -92,9 +92,9 @@
   
   .bg {
   
-    background-image: url('/bg1.jpg');
+    background-image: url('/images/red&black_gymBG.webp');
     background-position: center;
-    background-size: contain;
+    background-size:cover;
     background-blend-mode: overlay;
   
   

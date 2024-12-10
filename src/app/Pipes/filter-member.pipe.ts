@@ -5,8 +5,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterMemberPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: any[], searchText: string): any[] {
+   if(!value|| !Array.isArray(value)){
+    return[];
+   }
+   if(!searchText){
+    return value;
+   }
+   searchText = searchText.toLowerCase();
+   return value.filter(item=>
+    (item.firstName && item.firstName.toLowerCase().includes(searchText))||
+    (item.lastName && item.lastName.toLowerCase().includes(searchText))||
+    (item.userId && item.userId.toLowerCase().includes(searchText))
+   );
   }
 
 }

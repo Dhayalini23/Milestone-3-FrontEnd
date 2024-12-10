@@ -55,8 +55,8 @@
               <td>{{ payment.contactNo }}</td>
               <td>{{ payment.dueDate | date:'shortDate' }}</td>
               <td class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary me-3" [routerLink]="['/payment/pay', payment.id]">Pay</button>
-                <button type="button" class="btn btn-danger" [routerLink]="['/payment/payment-history', payment.id]">Payment History</button>
+                <button type="button" class="btn btn-outline-primary me-3" [routerLink]="['/payment/pay', payment.id]">Pay</button>
+                <button type="button" class="btn btn-outline-danger" [routerLink]="['/payment/payment-history', payment.id]">Payment History</button>
               </td>
             </tr>
           </tbody>

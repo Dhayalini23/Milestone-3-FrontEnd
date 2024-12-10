@@ -60,6 +60,8 @@ import { MemberPaymentComponent } from './Component/User/member-payment/member-p
 import { MemberPayComponent } from './Component/User/member-pay/member-pay.component';
 import { MemberSkippedPaymentComponent } from './Component/User/member-skipped-payment/member-skipped-payment.component';
 import { UserComponent } from './Component/User/user/user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterSubscriptionPipe } from './Pipes/filter-subscription.pipe';
 
 @NgModule({
   declarations: [
@@ -118,6 +120,7 @@ import { UserComponent } from './Component/User/user/user.component';
     MemberPayComponent,
     MemberSkippedPaymentComponent,
     UserComponent,
+    FilterSubscriptionPipe,
 
 
   ],
@@ -129,7 +132,8 @@ import { UserComponent } from './Component/User/user/user.component';
     FormsModule,
     CommonModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
