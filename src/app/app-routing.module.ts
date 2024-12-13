@@ -22,6 +22,10 @@ import { UserComponent } from './Component/User/user/user.component';
 import { ViewProgramComponent } from './Component/Admin/view-program/view-program.component';
 import { ViewSubscriptionComponent } from './Component/Admin/view-subscription/view-subscription.component';
 import { MemberPaymentComponent } from './Component/User/member-payment/member-payment.component';
+import { ReportComponent } from './Component/Admin/report/report.component';
+import { MemberReportComponent } from './Component/Admin/member-report/member-report.component';
+import { ProgramReportComponent } from './Component/Admin/program-report/program-report.component';
+import { AnnualFinancialReportComponent } from './Component/Admin/annual-financial-report/annual-financial-report.component';
 
 const routes: Routes = [
   
@@ -55,7 +59,14 @@ const routes: Routes = [
         {path :'editSubscription/:id',component:AddEditSubscriptionComponent},
         {path:'viewSubscription/:id',component:ViewSubscriptionComponent}
       ]},
-      {path: 'payment', component: PaymentComponent}
+      {path: 'payment', component: PaymentComponent,
+        children:[
+          {path:'refund',component:RefundComponent}
+        ]
+      },
+      {path:'member-report', component:MemberReportComponent},
+      {path:'program-report', component:ProgramReportComponent},
+      {path:'annual-financial-report', component:AnnualFinancialReportComponent},
 ]},
 
   {
@@ -67,14 +78,14 @@ const routes: Routes = [
     ]
   },
 
-  {path: 'payment',
-   component: PaymentComponent,
-    children:[
-      {path:'refund',component:RefundComponent},
-      {path:'skipped-payment',component:SkippedPaymentComponent},
-      {path:'overdue',component:OverdueComponent}
-    ]
-  },
+  // {path: 'payment',
+  //  component: PaymentComponent,
+  //   children:[
+  //     {path:'refund',component:RefundComponent},
+  //     {path:'skipped-payment',component:SkippedPaymentComponent},
+  //     {path:'overdue',component:OverdueComponent}
+  //   ]
+  // },
   { path: '', redirectTo: '/GrandeurGym', pathMatch: 'full' } 
 ];
 

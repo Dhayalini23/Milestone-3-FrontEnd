@@ -1,1 +1,27 @@
-<p>program-report works!</p>
+
+<div class="container bg-light ">
+        <div class="row">
+                <div class="col-md-4 col-sm-12 ">
+                        <table class="table table-borderless">
+                                <tbody>
+                                  <!-- Iterate over the programReportDetails array -->
+                                  <tr *ngFor="let program of programReportDetails">
+                                    <th scope="row">1</th>
+                                    <th>{{ program.programName }}</th>
+                                    <td>{{ program.enrollments }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                </div>
+                <div class="col-md-8 col-sm-12 ">
+                        <div style="display: block;">
+                                <canvas baseChart
+                                        [data]="barChartData"
+                                        [options]="barChartOptions"
+                                        [type]="barChartType"
+                                        [legend]="barChartLegend">
+                                </canvas>
+                              </div>
+                </div>
+        </div>
+</div>

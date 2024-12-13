@@ -1,11 +1,8 @@
 
-<div class="container">
-    <div class="card shadow p-4 mb-5 bg-white rounded">
-      <div class="card-body">
-        <a href=""  class="fs-4" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i></a>
-        <h4 class="card-title">Refund Request</h4>
+
         <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
           <div class="form-group mb-3">
+            <h4 class="h2 " style="color: rgb(238, 12, 27);">Refund Request</h4>
             <label for="memberId">Member ID</label>
             <input type="text" id="memberId" class="form-control" formControlName="memberId" />
             <div *ngIf="f.memberId.touched&& f.memberId.invalid" class="text-danger">
@@ -34,7 +31,7 @@
   
           <button type="submit" class="btn btn-primary" [disabled]="paymentForm.invalid">Submit Refund</button>
         </form>
-      </div>
+      <!-- </div>
     </div>
-  </div>
+  </div> -->
    
