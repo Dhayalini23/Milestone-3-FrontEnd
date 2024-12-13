@@ -1,5 +1,6 @@
     <div class="card shadow p-4 mb-5 bg-white rounded">
       <div class="card-body">
+        <h2>Payment</h2>
         <div class="d-flex justify-content-between mb-4">
           <div class="p-2 w-50">
             <input type="text" class="form-control" placeholder="Search Member..." name="search" [(ngModel)]="searchText" (input)="onSearch()">
@@ -35,7 +36,7 @@
           </div>
         </div>
   
-        <table class="table table-bordered table-hover table-striped">
+        <table class="table table-dark table-striped table-hover">
           <thead class="table-dark">
             <tr>
               <th>Id</th>
@@ -52,9 +53,13 @@
               <td>{{ member.nicNo }}</td>
               <td>{{ member.contactNo }}</td>
               <td class="d-flex justify-content-center">
+<!-- <<<<<<< Styles
+                <button type="button" class="btn btn-outline-primary me-3" [routerLink]="['/payment/pay', payment.id]">Pay</button>
+                <button type="button" class="btn btn-outline-danger" [routerLink]="['/payment/payment-history', payment.id]">Payment History</button>
+======= -->
                 <button type="button" class="btn btn-primary me-3" [routerLink]="['/payment/pay', member.id]">Pay</button>
-                <button type="button" class="btn btn-primary me-3" [routerLink]="['/payment/pay', member.id]">Skip payment</button>
                 <button type="button" class="btn btn-danger" [routerLink]="['/payment/payment-history', member.id]">Payment History</button>
+<!-- >>>>>>> main -->
               </td>
             </tr>
           </tbody>

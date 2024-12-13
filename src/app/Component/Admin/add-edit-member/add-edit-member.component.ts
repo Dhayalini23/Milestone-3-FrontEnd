@@ -71,23 +71,21 @@ export class AddEditMemberComponent {
       this.memberService.updateMember(user, this.memberId).subscribe(data => {
         console.log("123")
         this.toastr.success("Member is updated successfully");
-        this.router.navigate(["/members"]);
+        this.router.navigate(['/admin/member']);
       });
     } else {
       console.log(user)
       this.memberService.createMember(user).subscribe(data => {
-
+        console.log(data);
         this.toastr.success("Member is created successfully");
-        this.router.navigate(["/members"]);
+        this.router.navigate(["/admin/member"]);
       });
     }
   }
   saveChanges(): void {
     console.log('Updated member data:', this.memberData);
-    // Handle saving the updated data (e.g., making an API call to update the member)
     const modalElement = document.getElementById('exampleModal') as any;
-    // const modal = new bootstrap.Modal(modalElement);
-    // modal.hide();
+
 }
 
   cancel() {

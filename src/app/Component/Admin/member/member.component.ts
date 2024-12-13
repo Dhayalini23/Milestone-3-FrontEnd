@@ -3,6 +3,7 @@ import { Member } from '../../../Interfaces/member';
 import { MemberService } from '../../../Services/member.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { FilterMemberPipe } from '../../../Pipes/filter-member.pipe';
 
 @Component({
   selector: 'app-member',
@@ -11,13 +12,14 @@ import { Router } from '@angular/router';
 })
 export class MemberComponent implements OnInit {
   members: Member[] = [];
-  searchText: any;
+  searchText:any = '';
   selectedMember: any;
   showMemberDetails: any;
 
   constructor(private memberService: MemberService, 
     private toastr: ToastrService, 
-    private router:Router
+    private router:Router,
+    // private filter:FilterMemberPipe
   ) { }
 
   ngOnInit(): void {

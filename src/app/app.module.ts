@@ -60,9 +60,14 @@ import { MemberPaymentComponent } from './Component/User/member-payment/member-p
 import { MemberPayComponent } from './Component/User/member-pay/member-pay.component';
 import { MemberSkippedPaymentComponent } from './Component/User/member-skipped-payment/member-skipped-payment.component';
 import { UserComponent } from './Component/User/user/user.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterSubscriptionPipe } from './Pipes/filter-subscription.pipe';
+
 import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { AnnualFinancialReportComponent } from './Component/Admin/annual-financial-report/annual-financial-report.component';
  
+
 
 @NgModule({
   declarations: [
@@ -115,14 +120,19 @@ import { AnnualFinancialReportComponent } from './Component/Admin/annual-financi
     MemberDetailsComponent,
 
     AddReviewComponent,
+
+
+    FilterSubscriptionPipe,
+
       NavigationComponent,
       EnrolledProgramsComponent,
       ChangePasswordComponent,
       MemberPaymentComponent,
       MemberPayComponent,
       MemberSkippedPaymentComponent,
-      UserComponent,
+      UserComponent
       
+
 
 
   ],
@@ -135,7 +145,8 @@ import { AnnualFinancialReportComponent } from './Component/Admin/annual-financi
     CommonModule,
     BaseChartDirective,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideCharts(withDefaultRegisterables())
