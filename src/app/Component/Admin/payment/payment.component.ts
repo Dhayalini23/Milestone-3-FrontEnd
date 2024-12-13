@@ -3,6 +3,8 @@ import { Payment } from '../../../Interfaces/payment';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { PaymentService } from '../../../Services/payment.service';
+import { MemberService } from '../../../Services/member.service';
+import { Member } from '../../../Interfaces/member';
 
 @Component({
   selector: 'app-payment',
@@ -10,34 +12,32 @@ import { PaymentService } from '../../../Services/payment.service';
   styleUrl: './payment.component.css'
 })
 export class PaymentComponent implements OnInit {
-
+  members :Member[]=[]
   payments: Payment[] = []; 
   filteredPayments: Payment[] = []; 
   searchText: string = '';
-  
+
 
   constructor(
-    private paymentService: PaymentService, 
+    private paymentService: PaymentService,
+    private memberService:MemberService, 
     private toastr: ToastrService, 
     private router: Router
   ) { }
 
   ngOnInit(): void {
    
-    this.loadPayments();
+    this.loadMembers();
   }
 
   
-  loadPayments(): void {
-    // If you have a backend service, use it to fetch the payments like this:
-    // this.paymentService.getPayments().subscribe(data => {
-    //   this.payments = data;
-    //   this.filteredPayments = [...data]; // Initially show all payments
-    // }, error => {
-    //   this.toastr.error('Failed to load payments', 'Error');
-    // });
-
-  
+  loadMembers(): void {
+    this.memberService.getMember().subscribe(data =>{
+      console.log(data);  
+      this.members = data;
+    }, error => {
+      this.toastr.error("Failed to load members", "Error");
+    });
   }
 
   
@@ -63,5 +63,7 @@ export class PaymentComponent implements OnInit {
   goToPaymentHistory(paymentId: number): void {
     this.router.navigate(['/payment/payment-history', paymentId]);
   }
+
+  // Add Refund payment
 
 }

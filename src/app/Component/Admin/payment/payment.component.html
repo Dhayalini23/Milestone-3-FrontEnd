@@ -1,4 +1,3 @@
-<div class="container">
     <div class="card shadow p-4 mb-5 bg-white rounded">
       <div class="card-body">
         <div class="d-flex justify-content-between mb-4">
@@ -6,7 +5,8 @@
             <input type="text" class="form-control" placeholder="Search Member..." name="search" [(ngModel)]="searchText" (input)="onSearch()">
           </div>
           <div class="ml-auto p-2">
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Refund </button>
+
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#refund" >Refund</button>
           </div>
           <div class="ml-auto p-2">
           <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">Skipped Payment </button>
@@ -42,26 +42,38 @@
               <th>User Name</th>
               <th>NIC Number</th>
               <th>Contact No.</th>
-              <th>Due Date</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let payment of filteredPayments">
-              <td>{{ payment.id }}</td>
-              <td>{{ payment.name }}</td>
-              <td>{{ payment.nicNumber }}</td>
-              <td>{{ payment.contactNo }}</td>
-              <td>{{ payment.dueDate | date:'shortDate' }}</td>
+            <tr *ngFor="let member of members">
+              <td>{{ member.userId }}</td>
+              <td>{{ member.firstName }} {{member.lastName}}</td>
+              <td>{{ member.nicNo }}</td>
+              <td>{{ member.contactNo }}</td>
               <td class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary me-3" [routerLink]="['/payment/pay', payment.id]">Pay</button>
-                <button type="button" class="btn btn-danger" [routerLink]="['/payment/payment-history', payment.id]">Payment History</button>
+                <button type="button" class="btn btn-primary me-3" [routerLink]="['/payment/pay', member.id]">Pay</button>
+                <button type="button" class="btn btn-primary me-3" [routerLink]="['/payment/pay', member.id]">Skip payment</button>
+                <button type="button" class="btn btn-danger" [routerLink]="['/payment/payment-history', member.id]">Payment History</button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+  
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="refund" tabindex="-1" aria-labelledby="refundLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <app-refund ></app-refund>
+      </div>
+    </div>
   </div>
-  
-  
+</div>
