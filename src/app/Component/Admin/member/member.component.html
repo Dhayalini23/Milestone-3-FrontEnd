@@ -51,7 +51,7 @@
                   class="bi bi-trash3"></i></button>
               <button type="button" class="btn btn-outline-primary me-3"
                 [routerLink]="['/admin/member/viewMember' , member.id ]"><i class="bi bi-eye-fill"></i></button>
-              <button type="button" class="btn btn-outline-info me-3" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="enrollments(member.id)">
+              <button type="button" class="btn btn-outline-info me-3" data-bs-toggle="modal" data-bs-target="#enroll" (click)="enrollments(member.id)">
                 Enroll
               </button>
             </td>
@@ -67,15 +67,22 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Member Enrollments</h1>
+        <h1 class="modal-title fs-5" id="enrollLabel">Member Enrollments</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
+        <div *ngFor="let program of workoutPrograms" class="d-flex justify-content-evenly">
+          <p class="card-title fw-bold">{{program.name}}</p>
+          <p class="card-text">{{program.description}}</p>
+          <div class="text-left" style="text-align: left;">
+            <p class=""><b>Subscription :</b>{{program.programSubscription.name}}</p>
+            <p class=""><b>Next Due Date :</b>{{program.nextDueDate|date:'mediumDate'}} </p>
+            <p><b>Payments</b></p>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
