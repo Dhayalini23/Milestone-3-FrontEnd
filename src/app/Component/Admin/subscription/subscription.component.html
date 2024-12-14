@@ -36,8 +36,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let subscription of subscriptionData | filterSubscription: searchText">
-            <td>{{ subscription.id }}</td>
+          <tr *ngFor="let subscription of subscriptionData | filterSubscription: searchText ;let i=index">
+            <td>{{ i }}</td>
             <td>{{ subscription.title}}</td>
             <td>{{ subscription.duration }}</td>
             <td>

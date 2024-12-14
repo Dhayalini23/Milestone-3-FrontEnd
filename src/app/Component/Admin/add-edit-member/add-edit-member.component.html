@@ -3,7 +3,7 @@
  <a href=""  class="fs-4" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i></a>
   </div>
   <h3 class="text-dark text-center">{{ isEditMode ? 'Update User' : 'Add New Member' }}</h3>
-  <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="memberForm" (ngSubmit)="onSubmit()" style="margin: -20px;margin-top: -30px; padding: 40px;">
    
     <div class="row">
 
@@ -84,13 +84,18 @@
           <option value="2">Other</option>
         </select>
       </div>
-
+      <div class="col-bg-2 col-md-2 col-sm-12">
+        <label for="image" class="form-label">Weight:</label>
+        <input type="file" id="image" name="image" class="form-control" formControlName="image" ngModel />
+      </div>
+    </div>
       <!-- Address -->
       <div class="col-bg-8 col-md-8 col-sm-12">
         <label for="address" class="form-label">Address:</label>
         <textarea id="address" name="address" class="form-control" formControlName="address" rows="3" ngModel></textarea>
       </div>
-    </div>
+    
+    
 
     <div class="d-flex justify-content-center">
       <button type="submit" [disabled]="memberForm.invalid" class="btn btn-success me-2">

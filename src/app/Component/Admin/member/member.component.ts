@@ -41,6 +41,9 @@ export class MemberComponent implements OnInit {
       });
     }
   }
+  enrollments(id:number){
+
+  }
   loadMembers(){
 
     this.memberService.getMember().subscribe(data =>{

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Payment, PaymentHistory, SkippedPayment, UserPayment } from '../Interfaces/payment';
+import { AddPayment, Payment, PaymentHistory, SkippedPayment, UserPayment } from '../Interfaces/payment';
 import { Member } from '../Interfaces/member';
 
 @Injectable({

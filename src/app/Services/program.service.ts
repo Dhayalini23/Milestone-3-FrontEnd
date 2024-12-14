@@ -27,12 +27,12 @@ export class ProgramService {
     return this.Http.post(this.api+ 'Admin/Add-Program',program);
    }
   deleteProgram(programId:string){
-    return this.Http.delete(this.api+'Admin/DeleteProgram'+ programId);
+    return this.Http.delete(this.api+'Admin/DeleteProgram/'+ programId);
    }
    updateProgram(program:Program,programId:string){
     return this.Http.put(this.api+'Admin/UpdateProgram'+ programId,program);
    }
    getprogramById(programId : string){
-    return this.Http.get<Program>(this.api+'Admin/Get-Single-Program' + programId);
+    return this.Http.get<Program>(this.api+'Admin/Get-Single-Program/' + programId);
   }
 }

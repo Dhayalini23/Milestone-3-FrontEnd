@@ -20,7 +20,7 @@ export class RefundComponent {
     private refundService: PaymentService,
     private route: ActivatedRoute,
     private router: Router,
-    private toastr: ToastrService
+    // private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class RefundComponent {
         amount: data.amount,
       });
     }, error => {
-      this.toastr.error("Refund data not found.");
+      // this.toastr.error("Refund data not found.");
     });
   }
 
@@ -87,11 +87,11 @@ export class RefundComponent {
     console.log(refund)
       this.refundService.createPayment(refund).subscribe(
         data => {
-          this.toastr.success('Refund request submitted successfully.');
+          // this.toastr.success('Refund request submitted successfully.');
           this.router.navigate(['/refunds']);
         },
         error => {
-          this.toastr.error('Failed to create refund.');
+          // this.toastr.error('Failed to create refund.');
         }
       );
     // }

@@ -67,6 +67,7 @@ const routes: Routes = [
       {path:'Reports',
          component:ReportComponent,
          children:[
+           {path:'', component:MemberReportComponent},
            {path:'member-report', component:MemberReportComponent},
            {path:'program-report', component:ProgramReportComponent},
            {path:'annual-financial-report', component:AnnualFinancialReportComponent},          
