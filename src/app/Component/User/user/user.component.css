@@ -1,0 +1,7 @@
+/* Remove the dropdown caret arrow */
+.dropdown-toggle::after {
+    display: none; /* This removes the arrow */
+  }
+  .custom-dropdown-menu {
+    width: 250px; /* Set to the desired width */
+}

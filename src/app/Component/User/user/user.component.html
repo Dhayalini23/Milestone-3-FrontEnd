@@ -1,98 +1,133 @@
 <app-navigation></app-navigation>
+<!-- Dropdown Icon (using Bootstrap's icon classes) -->
 
-<div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Menu</span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a [routerLink]="['userPayment']" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                    </li>
-                    <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">loser</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
+<div class="dropdown" style="width: 100px; position: absolute; top: 0; right: 0;margin-top: 20px;">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <!-- Using flexbox for proper alignment -->
+        <div style="display: flex; justify-content: flex-end; align-items: center;">
+            <!-- Adjusting image size to a reasonable value -->
+            <img src="/images/profile-circle-svgrepo-com.svg" alt="Profile" style="width: 40px; height: 40px;">
+        </div>
+    </button>
+    <ul class="dropdown-menu bg-dark text-light p-3" style="text-align: right; width: 200px;">
+        <li>
+            <a class="nav-link px-0 align-middle" (click)="navigateHome()">
+                <span class="dropdown-item text-light">Home</span></a>
+            <hr class="bg-light">
+        </li>
+        <li>
+            <a [routerLink]="['userPayment']" class="nav-link px-0 align-middle">
+                <span class="dropdown-item text-light">Payments</span></a>
+            <hr class="bg-light">
+        </li>
+        <li>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Change Password
+            </button>
+            <hr class="bg-light">
+
+        </li>
+        <li><a class="dropdown-item text-light" href="#" (click)="logOut()">Logout</a></li>
+    </ul>
+</div>
+<div>
+
+    <router-outlet></router-outlet>
+</div>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white ">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/YourPageName" role="button">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            
+<!-- Twitter -->
+<a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/YourTwitterHandle" role="button">
+    <i class="fab fa-twitter"></i>
+</a>
+
+<!-- Google -->
+<a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://plus.google.com/YourGoogleProfile" role="button">
+    <i class="fab fa-google"></i>
+</a>
+
+<!-- Instagram -->
+<a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/YourInstagramHandle" role="button">
+    <i class="fab fa-instagram"></i>
+</a>
+
+<!-- Linkedin -->
+<a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/YourLinkedinProfile" role="button">
+    <i class="fab fa-linkedin-in"></i>
+</a>
+
+<!-- Github -->
+<a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://github.com/YourGithubUsername" role="button">
+    <i class="fab fa-github"></i>
+</a>
+
+        </section>
+        <!-- Section: Text -->
+        <section class="mb-4">
+            <p>
+                "Your fitness journey starts here! At Grandeur Gym, we are dedicated to helping you achieve your health
+                and wellness goals with state-of-the-art facilities, expert trainers, and a supportive community. Join
+                us today and experience the difference! Terms and conditions apply. Contact us for more details."
+            </p>
+        </section>
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">Home</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">Gallery</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">About Us</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <a href="#!" class="text-white">Contact Us</a>
                 </div>
             </div>
-        </div>
-        <div class="col py-3">
+        </section>
+        <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
 
-            <div class="m-6" style="margin-top:50px;">
-                <router-outlet></router-outlet>
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">powergym.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <div class="modal-body">
+                <div style="width: 450px;">
+
+                    <app-change-password ></app-change-password>
+                </div>
+
             </div>
+
         </div>
     </div>
 </div>
-
-
-
-
-
-

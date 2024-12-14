@@ -26,6 +26,7 @@ import { ReportComponent } from './Component/Admin/report/report.component';
 import { MemberReportComponent } from './Component/Admin/member-report/member-report.component';
 import { ProgramReportComponent } from './Component/Admin/program-report/program-report.component';
 import { AnnualFinancialReportComponent } from './Component/Admin/annual-financial-report/annual-financial-report.component';
+import { AdminDashBoardComponent } from './Component/Admin/admin-dash-board/admin-dash-board.component';
 
 const routes: Routes = [
   
@@ -44,6 +45,12 @@ const routes: Routes = [
     path:'admin', 
     component:DashboardComponent,
     children:[
+      {path:'' , component:AdminDashBoardComponent},
+      {path:'member' , children:[
+        {path:'',component:MemberComponent },
+       {path :'editMember/:id',component:AddEditMemberComponent},
+       {path:'viewMember/:id',component:ViewMemberComponent}
+     ] },
       {path:'member' , children:[
          {path:'',component:MemberComponent },
         {path :'editMember/:id',component:AddEditMemberComponent},
@@ -64,9 +71,16 @@ const routes: Routes = [
           {path:'refund',component:RefundComponent}
         ]
       },
-      {path:'member-report', component:MemberReportComponent},
-      {path:'program-report', component:ProgramReportComponent},
-      {path:'annual-financial-report', component:AnnualFinancialReportComponent},
+      {path:'Reports',
+         component:ReportComponent,
+         children:[
+           {path:'', component:MemberReportComponent},
+           {path:'member-report', component:MemberReportComponent},
+           {path:'program-report', component:ProgramReportComponent},
+           {path:'annual-financial-report', component:AnnualFinancialReportComponent},          
+        ]
+      },
+    
 ]},
 
   {
@@ -74,6 +88,7 @@ const routes: Routes = [
     component:UserComponent,
     children:[
       {path:'',component:UserHomeComponent},
+      {path:'home',component:UserHomeComponent},
       {path:'userPayment',component:MemberPaymentComponent},
     ]
   },

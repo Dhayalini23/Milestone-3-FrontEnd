@@ -7,6 +7,10 @@ export interface Payment{
     dueDate:string;
 
 }
+export interface AddPayment{
+    memberId:number;
+    programPaymentId:number;
+}
 
 export interface UserPayment{
     memberId:number;

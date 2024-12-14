@@ -47,19 +47,20 @@ export class AddEditMemberComponent {
 
     if (uid) {
       this.isEditMode = true;
+      console.log(uid)
     } else {
       this.isEditMode = false;
     }
   }
 
   ngOnInit(): void {
+    console.log(this.memberId)
     if (this.isEditMode == true) {
       this.memberService.getMemberById(this.memberId).subscribe(data => {
         console.log(data);
         console.log('Received member data:', this.memberData);
         this.memberForm.patchValue(data);
       }, error => {
-        this.toastr.error("Member is not found");
       });
     }
   }
@@ -73,6 +74,7 @@ export class AddEditMemberComponent {
         this.toastr.success("Member is updated successfully");
         this.router.navigate(['/admin/member']);
       });
+      this.onClose()
     } else {
       console.log(user)
       this.memberService.createMember(user).subscribe(data => {
@@ -80,7 +82,12 @@ export class AddEditMemberComponent {
         this.toastr.success("Member is created successfully");
         this.router.navigate(["/admin/member"]);
       });
+      this.onClose()
+
     }
+  }
+  onClose(){
+    this.router.navigate(['/admin/member'])
   }
   saveChanges(): void {
     console.log('Updated member data:', this.memberData);
@@ -89,7 +96,12 @@ export class AddEditMemberComponent {
 }
 
   cancel() {
-    this.memberForm.reset();
+    if(this.isEditMode==true){
+      this.onClose()
+    }else{
+
+      this.memberForm.reset();
+    }
   }
 
 }

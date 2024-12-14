@@ -1,50 +1,95 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="card id-card text-center p-4">
-    <div class="card-body">
+<div class="container d-flex justify-content-center align-items-center vh-100 " style="margin-top: -90px;">
+  <div class="bg-light text-center p-4 " style="width: 500px;">
+    <div class="">
       <div class="profile-pic mb-3">
         <h2>User Details</h2>
-        <img src="profile-placeholder.png" alt="Profile Picture" class="img-fluid rounded-circle">
+        <img src="/members/1.jpeg" alt="Profile Picture" class="img-fluid rounded-circle">
       </div>
       <div *ngIf="member" class="details text-start">
         <tr >
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">            <div class="detail-item">
+                <strong>User Id:</strong> {{ member.userId }}
+              </div></div>
+              <div class="col-md-6">
+                <div class="detail-item">
+                  <strong>Name:</strong> {{ member.firstName }}{{ member.lastName }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="detail-item">
+                  <strong>NIC:</strong> {{ member.nicNo }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="detail-item">
+                  <strong>Age:</strong> {{ member.age }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="detail-item">
+                  <strong>Gender:</strong> {{ member.gender }}
+                </div>
+              </div>
+              <div class="col-md-6">            <div class="detail-item">
+                <strong>Date of Birth:</strong> {{ member.dob }}
+              </div></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="detail-item">
+                <strong>Height:</strong> {{ member.height }} cm
+              </div></div>
+              <div class="col-md-6">
+                <div class="detail-item">
+                  <strong>Weight:</strong> {{ member.weight }} kg
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                
+            <div class="detail-item">
+              <strong>Email:</strong> {{ member.email }}
+            </div>
+              </div>
+              <div class="col-md-6">
+                <div class="detail-item">
+                  <strong>Address:</strong> {{ member.address }}
+                </div>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-6">
+                <div class="detail-item">
+                  <strong>Contact No.:</strong> {{ member.contactNo }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-primary bg-primary" (click)="onClose()">Okay</button>
+              </div>
+            </div>
+          </div>
           <div class="member-details-card">
             <!-- <div class="detail-item">
               <strong>Id:</strong> {{ member.id }}
             </div> -->
-            <div class="detail-item">
-              <strong>User Id:</strong> {{ member.userId }}
-            </div>
-            <div class="detail-item">
-              <strong>Name:</strong> {{ member.firstName }}{{ member.lastName }}
-            </div>
-            <div class="detail-item">
-              <strong>NIC:</strong> {{ member.nicNo }}
-            </div>
-            <div class="detail-item">
-              <strong>Age:</strong> {{ member.age }}
-            </div>
-            <div class="detail-item">
-              <strong>Gender:</strong> {{ member.gender }}
-            </div>
-            <div class="detail-item">
-              <strong>Date of Birth:</strong> {{ member.dob }}
-            </div>
-            <div class="detail-item">
-              <strong>Height:</strong> {{ member.height }} cm
-            </div>
-            <div class="detail-item">
-              <strong>Weight:</strong> {{ member.weight }} kg
-            </div>
-            <div class="detail-item">
-              <strong>Email:</strong> {{ member.email }}
-            </div>
-            <div class="detail-item">
-              <strong>Address:</strong> {{ member.address }}
-            </div>
-            <div class="detail-item">
-              <strong>Contact No.:</strong> {{ member.contactNo }}
-            </div>
-            <button class="btn" (click)="onClose()">Okay</button>
+
+
+
+
+
+
+
+
+
+
+
           </div>
         </tr>
       </div>

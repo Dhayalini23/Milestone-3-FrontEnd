@@ -47,6 +47,6 @@ loadMembers(){
 //   this.close.emit();
 // }
 onClose(){
-  
+  this.router.navigate(['/admin/member'])
 }
 }

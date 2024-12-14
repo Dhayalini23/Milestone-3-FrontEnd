@@ -41,10 +41,11 @@ export class AddEditProgramComponent {
   ngOnInit(): void {
     if (this.isEditMode == true) {
       this.programService.getprogramById(this.programId).subscribe(data => {
-
+        console.log(data);
+        
         this.programForm.patchValue({
           id: data.id,
-          programName: data.name,
+          name: data.name,
           description: data.description,
         })
       }, error => {
@@ -61,13 +62,19 @@ export class AddEditProgramComponent {
         this.toastr.success("Program is updated successfully");
         this.router.navigate(["/programs"]);
       });
+      this.onClose();
+
     } else {
       console.log(program)
       this.programService.createProgram(program).subscribe(data => {
         this.toastr.success("Program is created successfully");
         this.router.navigate(["/programs"]);
       });
+      this.onClose();
     }
+  }
+  onClose(){
+    this.router.navigate(['/admin/program'])
   }
   saveChanges(): void {
     console.log('Updated program data:', this.programData);
@@ -77,7 +84,11 @@ export class AddEditProgramComponent {
 
 
   cancel() {
-    this.programForm.reset();
+    if(this.isEditMode==true){
+      this.onClose();
+    }else{
+      this.programForm.reset();
+    }
   }
 
 }

@@ -3,7 +3,7 @@
         <h2>Payment</h2>
         <div class="d-flex justify-content-between mb-4">
           <div class="p-2 w-50">
-            <input type="text" class="form-control" placeholder="Search Member..." name="search" [(ngModel)]="searchText" (input)="onSearch()">
+            <input type="text" class="form-control" placeholder="Search Payment..." name="search" [(ngModel)]="searchText" (input)="onSearch()">
           </div>
           <div class="ml-auto p-2">
 
@@ -13,21 +13,13 @@
           <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">Skipped Payment </button>
           </div>
           <div class="ml-auto p-2">
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal3">Overdue </button>   
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#overdue" (click)="overDue()">Overdue </button>   
           </div>
-          <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content ">
-                <div class="modal-body">
-                  <app-refund></app-refund>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           <div class="modal fade " id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-              <div class="modal-content ">
+              <div class="modal-content1">
                 <div class="modal-body">
                   <app-skipped-payment></app-skipped-payment>
                 </div>
@@ -52,14 +44,10 @@
               <td>{{ member.firstName }} {{member.lastName}}</td>
               <td>{{ member.nicNo }}</td>
               <td>{{ member.contactNo }}</td>
-              <td class="d-flex justify-content-center">
-<!-- <<<<<<< Styles
-                <button type="button" class="btn btn-outline-primary me-3" [routerLink]="['/payment/pay', payment.id]">Pay</button>
-                <button type="button" class="btn btn-outline-danger" [routerLink]="['/payment/payment-history', payment.id]">Payment History</button>
-======= -->
-                <button type="button" class="btn btn-primary me-3" [routerLink]="['/payment/pay', member.id]">Pay</button>
-                <button type="button" class="btn btn-danger" [routerLink]="['/payment/payment-history', member.id]">Payment History</button>
-<!-- >>>>>>> main -->
+              <td class="d-flex justify-content-evenly">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#pay" (click)="pay(member.id)">Pay </button>   
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#paymentHistory" (click)="paymentHistory(member.id)">Payment History </button>   
+
               </td>
             </tr>
           </tbody>
@@ -69,7 +57,7 @@
   
 
 
-<!-- Button trigger modal -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="refund" tabindex="-1" aria-labelledby="refundLabel" aria-hidden="true">
@@ -78,6 +66,123 @@
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="modal-body">
         <app-refund ></app-refund>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Payment -->
+<div class="modal fade" id="pay" tabindex="-1" aria-labelledby="payLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+       <div class="" *ngFor="let program of workoutPrograms">
+        <div class="d-flex justify-content-between">
+          <p>{{program.name}}</p>
+          <p>{{program.programSubscription.name}}</p>
+          <p>{{program.programPayments[0].paymentType}}</p>
+          <p>{{program.programPayments[0].amount}}</p>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal"  (click)="userPay(program.programPayments[0].id)">Pay </button>         
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Overdue -->
+<div class="modal fade" id="overdue" tabindex="-1" aria-labelledby="overdueLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">User Id</th>
+              <th scope="col">User name</th>
+              <th scope="col">Program</th>
+              <th scope="col">Subscription</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let member of overDueMembers;let i=index;">
+              <th scope="row">{{i}}</th>
+              <td>{{member.userId}}</td>
+              <td>{{member.firstName}} {{member.lastName}}</td>
+              <td>{{member.name}}</td>
+              <td>{{member.subscriptionTitle}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Payment History -->
+<div class="modal fade" id="paymentHistory" tabindex="-1" aria-labelledby="paymentHistoryLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        
+<div >
+  <div class="m-3">
+      <h1 class="text-danger">User Payment History</h1>
+  </div>
+  <div class="">
+      <table class="table table-hover  table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Details</th>
+              <th scope="col">Amount (Rs)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let payment of Payments; let i = index">
+              <!-- <tr> -->
+              <tr [ngClass]="{'refund-red': payment.isRefund, 'refund-black': !payment.isRefund}">
+                <th scope="row">{{ i }}</th>
+                <td>{{ payment.date | date: 'mediumDate' }}</td>
+                <td>{{ payment.reason }}</td>
+                <td>{{ payment.amount }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+  </div>
+  <section>
+    <h3 class="text-danger">Skipped Payments</h3>
+    <div class="">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Program Name</th>
+            <th scope="col">Reason</th>
+            <th scope="col">Sart Date</th>
+            <th scope="col">End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payment of SkippedPayments">
+            <td>{{payment.programName}}</td>
+            <td>{{payment.reason}}</td>
+            <td>{{payment.startDate | date:'mediumDate' }}</td>
+            <td>{{payment.endDate | date:'mediumDate' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
       </div>
     </div>
   </div>

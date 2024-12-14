@@ -66,6 +66,8 @@ import { FilterSubscriptionPipe } from './Pipes/filter-subscription.pipe';
 
 import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { AnnualFinancialReportComponent } from './Component/Admin/annual-financial-report/annual-financial-report.component';
+import { AdminDashBoardComponent } from './Component/Admin/admin-dash-board/admin-dash-board.component';
+import { CountDisplayComponent } from './Component/Admin/count-display/count-display.component';
  
 
 
@@ -130,7 +132,9 @@ import { AnnualFinancialReportComponent } from './Component/Admin/annual-financi
       MemberPaymentComponent,
       MemberPayComponent,
       MemberSkippedPaymentComponent,
-      UserComponent
+      UserComponent,
+      AdminDashBoardComponent,
+      CountDisplayComponent
       
 
 

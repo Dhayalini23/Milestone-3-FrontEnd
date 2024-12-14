@@ -39,7 +39,7 @@ export class ViewProgramComponent {
     })
   }
 
-  onClose() {
-
+  onClose(){
+    this.router.navigate(['/admin/program'])
   }
 }

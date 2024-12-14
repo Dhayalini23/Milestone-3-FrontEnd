@@ -1,0 +1,32 @@
+
+<app-count-display></app-count-display>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-6 bg-light p-2">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User Id</th>
+                    <th scope="col">User name</th>
+                    <th scope="col">Program</th>
+                    <th scope="col">Subscription</th>
+                  </tr>
+                </thead>
+                <tbody>
+      
+                  <tr *ngFor="let member of overDueMembers;let i=index;">
+                    <th scope="row">{{i}}</th>
+                    <td>{{member.userId}}</td>
+                    <td>{{member.firstName}} {{member.lastName}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.subscriptionTitle}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-md-6 bg-light">
+            <app-annual-financial-report></app-annual-financial-report>
+        </div>
+    </div>
+</div>
