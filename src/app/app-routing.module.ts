@@ -64,9 +64,15 @@ const routes: Routes = [
           {path:'refund',component:RefundComponent}
         ]
       },
-      {path:'member-report', component:MemberReportComponent},
-      {path:'program-report', component:ProgramReportComponent},
-      {path:'annual-financial-report', component:AnnualFinancialReportComponent},
+      {path:'Reports',
+         component:ReportComponent,
+         children:[
+           {path:'member-report', component:MemberReportComponent},
+           {path:'program-report', component:ProgramReportComponent},
+           {path:'annual-financial-report', component:AnnualFinancialReportComponent},          
+        ]
+      },
+    
 ]},
 
   {
@@ -74,6 +80,7 @@ const routes: Routes = [
     component:UserComponent,
     children:[
       {path:'',component:UserHomeComponent},
+      {path:'home',component:UserHomeComponent},
       {path:'userPayment',component:MemberPaymentComponent},
     ]
   },

@@ -13,17 +13,9 @@
           <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">Skipped Payment </button>
           </div>
           <div class="ml-auto p-2">
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal3">Overdue </button>   
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#overdue">Overdue </button>   
           </div>
-          <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content ">
-                <div class="modal-body">
-                  <app-refund></app-refund>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           <div class="modal fade " id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -69,7 +61,7 @@
   
 
 
-<!-- Button trigger modal -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="refund" tabindex="-1" aria-labelledby="refundLabel" aria-hidden="true">
@@ -78,6 +70,43 @@
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="modal-body">
         <app-refund ></app-refund>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Overdue -->
+<div class="modal fade" id="overdue" tabindex="-1" aria-labelledby="overdueLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <!-- <th scope="col">{{}}</th> -->
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

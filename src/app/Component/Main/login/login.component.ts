@@ -31,17 +31,19 @@ export class LoginComponent {
       this.loginService.Login(user).subscribe(data =>{
         this.UserDetails=data;
         console.log(this.UserDetails);
-        console.log(typeof this.UserDetails.Role)
         this.Navigate(this.UserDetails.role,this.UserDetails.userId)
       });
     }
     Navigate(Role:string,id:string){
       
+      console.log(id)
         if(Role=="Admin"){
+          localStorage.setItem('Id',id.toString())
           this.route.navigate(['/admin']).catch((error) => {
             console.error("Navigation error: ", error);
           })
         }else if(Role="Member"){
+          localStorage.setItem('Id',id.toString())
           this.userService.getUserDetails(id).subscribe(data => {
             this.member=data;
             localStorage.setItem('UserId',this.member.id.toString())

@@ -2,7 +2,7 @@
 <div class="container bg-light ">
         <div class="row">
                 <div class="col-md-4 col-sm-12 ">
-                        <table class="table table-borderless">
+                        <table class="table table-borderless bg-secondary">
                                 <tbody>
                                   <!-- Iterate over the programReportDetails array -->
                                   <tr *ngFor="let program of programReportDetails">
@@ -14,7 +14,7 @@
                               </table>
                 </div>
                 <div class="col-md-8 col-sm-12 ">
-                        <div style="display: block;">
+                        <div style="display: block;width: 1000px;">
                                 <canvas baseChart
                                         [data]="barChartData"
                                         [options]="barChartOptions"
