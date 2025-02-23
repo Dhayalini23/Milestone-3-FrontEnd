@@ -70,8 +70,8 @@ export class AddEditMemberComponent {
 
     if (this.isEditMode == true) {
       this.memberService.updateMember(user, this.memberId).subscribe(data => {
-        console.log("123")
-        this.toastr.success("Member is updated successfully");
+        // console.log("123")
+        // this.toastr.success("Member is updated successfully");
         this.router.navigate(['/admin/member']);
       });
       this.onClose()
@@ -79,7 +79,7 @@ export class AddEditMemberComponent {
       console.log(user)
       this.memberService.createMember(user).subscribe(data => {
         console.log(data);
-        this.toastr.success("Member is created successfully");
+        // this.toastr.success("Member is created successfully");
         this.router.navigate(["/admin/member"]);
       });
       this.onClose()

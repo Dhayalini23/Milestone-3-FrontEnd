@@ -4,7 +4,7 @@
   <div class="container-fluid px-4 row ">
     <div class="col-6">
       <a class="navbar-brand me-auto" href="index.html">
-        <h2 class="text-uppercase font-monospace">Grandeur Gym Space</h2>
+        <h2 class="text-uppercase font-monospace">Power World Gym</h2>
       </a>
     </div>
     <div class="col-6 d-flex justify-content-end p-2">
@@ -29,6 +29,12 @@
       </div>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a class="nav-link text-white d-flex align-items-center sidebar-item" [routerLink]="['/admin']">
+            <i class="bi bi-grid fs-3"></i>
+            <span class="ms-3 text" *ngIf="!isCollapsed">Dashboard</span>
+          </a>
+        </li>
         <li>
           <a class="nav-link text-white d-flex align-items-center sidebar-item" [routerLink]="['/admin/member']">
             <i class="bi bi-people fs-3"></i>

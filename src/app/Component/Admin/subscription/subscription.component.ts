@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SubscriptionService } from '../../../Services/subscription.service';
 import { Subscription } from '../../../Interfaces/subscription';
+import { ProgramService } from '../../../Services/program.service';
 
 @Component({
   selector: 'app-subscription',
@@ -10,18 +11,24 @@ import { Subscription } from '../../../Interfaces/subscription';
   styleUrl: './subscription.component.css'
 })
 export class SubscriptionComponent implements OnInit{
-  
+  programs:any;
   subscriptionData!: Subscription[];
   filteredSubscription: Subscription[] = []; 
   searchText: string = '';  
   constructor(
     private subscriptionService: SubscriptionService,
-    private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private programService:ProgramService
   ) { }
 
   ngOnInit(): void {
     this.loadSubscription();
+    this.programService.getAllWorkoutPrograms().subscribe(
+      data => {
+        console.log(data);
+        this.programs = data;
+      });
+
   }
 
 
@@ -34,7 +41,6 @@ export class SubscriptionComponent implements OnInit{
         
       },
       error:(err:any)=>{
-        this.toastr.error("Failed to load subscriptions", "Error");
       }
     })
   }
@@ -43,15 +49,16 @@ export class SubscriptionComponent implements OnInit{
   onDelete(subscriptionId: string) {
     if (confirm("Do you want to delete this subscription?")) {
       this.subscriptionService.deleteSubscription(subscriptionId).subscribe(data => {
-        this.toastr.success('Subscription is deleted', "Deleted", {
-          timeOut: 3000,
-          closeButton: true
-        });
+        // this.toastr.success('Subscription is deleted', "Deleted", {
+        //   timeOut: 3000,
+        //   closeButton: true
+        // });
         this.loadSubscription();  
       }, error => {
-        this.toastr.error("Failed to delete subscription", "Error");
+        // this.toastr.error("Failed to delete subscription", "Error");
       });
     }
+    // location.reload();
   }
 
   onEdit(subscriptionId: string) {

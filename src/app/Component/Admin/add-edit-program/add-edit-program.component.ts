@@ -49,7 +49,7 @@ export class AddEditProgramComponent {
           description: data.description,
         })
       }, error => {
-        this.toastr.error("Program is not found");
+        // this.toastr.error("Program is not found");
       });
     }
   }
@@ -59,17 +59,20 @@ export class AddEditProgramComponent {
 
     if (this.isEditMode == true) {
       this.programService.updateProgram(program,this.programId).subscribe(data => {
-        this.toastr.success("Program is updated successfully");
-        this.router.navigate(["/programs"]);
+        // this.toastr.success("Program is updated successfully");
+        this.router.navigate(["/admin/program"]);
       });
+      // location.reload()
       this.onClose();
 
     } else {
       console.log(program)
       this.programService.createProgram(program).subscribe(data => {
-        this.toastr.success("Program is created successfully");
-        this.router.navigate(["/programs"]);
+        // this.toastr.success("Program is created successfully");
+        this.router.navigate(["/admin/program"]);
       });
+      // location.reload()
+
       this.onClose();
     }
   }
@@ -88,6 +91,7 @@ export class AddEditProgramComponent {
       this.onClose();
     }else{
       this.programForm.reset();
+      location.reload()
     }
   }
 

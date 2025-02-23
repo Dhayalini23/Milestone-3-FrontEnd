@@ -48,17 +48,17 @@ export class MemberReportComponent {
 
   // Data for the side-by-side bar chart
   public barChartData: ChartData<'bar'> = {
-    labels: [], // Age ranges will be populated dynamically
+    labels: JSON.parse(localStorage.getItem('age') || '[]'), // Age ranges will be populated dynamically
     datasets: [
       {
         label: 'Male',
-        data: [], // Data for male members in each age range
+        data: JSON.parse(localStorage.getItem('males') || '[]'), // Data for male members in each age range
         backgroundColor: 'rgba(75,192,192,0.6)', // Color for male bars
         barPercentage: 0.4, // Controls the width of the bars (to ensure they are side by side)
       },
       {
         label: 'Female',
-        data: [], // Data for female members in each age range
+        data: JSON.parse(localStorage.getItem('females') || '[]'), // Data for female members in each age range
         backgroundColor: 'rgba(255,99,132,0.6)', // Color for female bars
         barPercentage: 0.4, // Controls the width of the bars (to ensure they are side by side)
       },
@@ -98,8 +98,8 @@ export class MemberReportComponent {
   // Method to update chart data after fetching data
   private updateChart(): void {
     
-    this.barChartData.labels = this.age; // Assign dynamic age labels
-    this.barChartData.datasets[0].data = this.males; // Male data
-    this.barChartData.datasets[1].data = this.females; // Female data
+    this.barChartData.labels =JSON.parse(localStorage.getItem('age') || '[]');  // Assign dynamic age labels
+    this.barChartData.datasets[0].data =JSON.parse(localStorage.getItem('males') || '[]');  // Male data
+    this.barChartData.datasets[1].data =JSON.parse(localStorage.getItem('females') || '[]'); // Female data
   }
 }

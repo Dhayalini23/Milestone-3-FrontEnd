@@ -8,22 +8,67 @@
             (input)="onSearch()">
         </div>
         <div class="ml-auto p-2">
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+          <button type="button" class="btn btn-dark m-3 " data-bs-toggle="modal" data-bs-target="#exampleModal"><i
               class="bi bi-plus-lg"></i>
             Add New Subscription
           </button>
-          <div class="modal fade p-0 m-0" id="exampleModal" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-               <app-add-edit-subscription></app-add-edit-subscription>
-              </div>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#programModal"><i
+              class="bi bi-plus-lg"></i>
+            Add Program
+          </button>
+        </div>
+        <!-- Add-Subscription -->
+        <div class="modal fade p-0 m-0" id="exampleModal" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <app-add-edit-subscription></app-add-edit-subscription>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- Add Program -->
+    <div class="modal fade" id="programModal" tabindex="-1" aria-labelledby="programModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="programModalLabel">Add Program to Subscription</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Subscription</option>
+                  <option *ngFor="let subscription of subscriptionData" [value]="subscription.id">{{subscription.title}}
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Workout Program</option>
+                  <option *ngFor="let program of programs" [value]="program.id">{{program.name}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="initialPayment" class="form-label">Initial Payment :</label>
+                <input type="number" class="form-control" id="initialPayment" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="renewalPayment" class="form-label">Renewal Payment :</label>
+                <input type="number" class="form-control" id="renewalPayment">
+              </div>
 
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div>
       <table class="table table-dark table-striped">
@@ -51,10 +96,47 @@
               <button type="button" class="btn btn-outline-primary me-3"
                 [routerLink]="['/admin/subscription/viewSubscription' , subscription.id ]"><i
                   class="bi bi-eye-fill"></i></button>
+              <!-- <button type="button" class="btn btn-outline-primary me-3" (click)="onDelete(subscription.id)">
+                Program
+              </button> -->
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" data-bs-target="#subprogramModal">
+                Program
+              </button>
+
+              <!-- Modal -->
+
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+</div>
+<!-- Subscribed Programs -->
+<div class="modal fade" id="subprogramModal" tabindex="-1" aria-labelledby="subprogramModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="subprogramModalLabel">Workout Programs</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div *ngFor="let program of programs">
+          <tr >
+            <td class="col" style="width: 400px;">{{program.name}}</td>
+            <td class="col">
+              <button type="button" class="btn btn-outline-danger me-3" >
+                <i class="bi bi-trash3"></i>
+              </button>
+            </td>
+          </tr>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
 </div>

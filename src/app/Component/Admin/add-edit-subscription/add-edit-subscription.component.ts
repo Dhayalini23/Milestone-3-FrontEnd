@@ -52,24 +52,28 @@ export class AddEditSubscriptionComponent  {
         console.log(data);
         this.subscriptionForm.patchValue(data)
       }, error => {
-        this.toastr.error("Subscription is not found");
+        // this.toastr.error("Subscription is not found");
       });
     }
   }
-
+  onClose(){
+    this.router.navigate(['/admin/subscription'])
+  }
   onSubmit() {
     let subscription = this.subscriptionForm.value;
 
     if (this.isEditMode == true) {
       this.subscriptionService.updateSubscription(subscription,this.subscriptionId).subscribe(data => {
-        this.toastr.success("Subscription is updated successfully");
+        // this.toastr.success("Subscription is updated successfully");
         this.router.navigate(["/subscriptions"]);
+        this.onClose();
       });
     } else {
       this.subscriptionService.createSubscription(subscription).subscribe(data => {
-        this.toastr.success("Subscription is created successfully");
+        // this.toastr.success("Subscription is created successfully");
         this.router.navigate(["/subscriptions"]);
       });
+      this.onClose();
     }
   }
   saveChanges(): void {

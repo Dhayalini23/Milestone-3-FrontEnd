@@ -34,7 +34,7 @@ export class ProgramComponent implements OnInit {
       this.programs = data;     
       // this.filteredPrograms = data; 
     }, error => {
-      this.toastr.error("Failed to load programs", "Error");
+      // this.toastr.error("Failed to load programs", "Error");
     });
   }
 
@@ -42,13 +42,13 @@ export class ProgramComponent implements OnInit {
   onDelete(programId: string) {
     if (confirm("Do you want to delete this program?")) {
       this.programService.deleteProgram(programId).subscribe(data => {
-        this.toastr.success('Program is deleted', "Deleted", {
-          timeOut: 3000,
-          closeButton: true
-        });
+        // this.toastr.success('Program is deleted', "Deleted", {
+        //   timeOut: 3000,
+        //   closeButton: true
+        // });
         this.loadPrograms();  
       }, error => {
-        this.toastr.error("Failed to delete program", "Error");
+        // this.toastr.error("Failed to delete program", "Error");
       });
     }
   }

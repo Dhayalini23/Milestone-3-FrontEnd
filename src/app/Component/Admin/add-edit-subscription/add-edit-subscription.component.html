@@ -15,19 +15,14 @@
                     ngModel></textarea>
             </div>
             <div class="mb-3">
-                <label for="paymentType" class="form-label">paymentType</label>
-                <!-- <input type="text" class="form-control" id="paymentType" formControlName="paymentType"> -->
-                <select id="paymentType" class="form-select" formControlName="paymentType">
-                    <option value="" disabled>Select Payment Type</option>
-                    <option value="0">Monthly Fees</option>
-                    <option value="1">Anual Fees</option>
-                    <option value="2">Initial Fees</option>
-                  </select>
+                <label for="duration" class="form-label">Duration</label><span>(Months)</span>
+                <input type="number" class="form-control" id="duration" formControlName="duration"> 
             </div>
+            
             <div class="mb-3 mx-auto">
                 <button type="submit" [disabled]="subscriptionForm.invalid" class="btn btn-success me-2">{{isEditMode ==
                     true ? 'Update' : 'Save'}}</button>
-                <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+                <button type="button" (click)="onClose()" class="btn btn-secondary">Cancel</button>
             </div>
         </form>
     </div>

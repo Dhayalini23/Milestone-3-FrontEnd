@@ -14,7 +14,7 @@ export class PaymentService {
     return this.Http.get<Payment[]>(this.api+'');
   }
   createPayment(payment:any){
-    return this.Http.post(this.api+'',payment);
+    return this.Http.post(this.api+'Add-Payment',payment);
    }
   deletePayment(paymentId:string){
     return this.Http.delete(this.api+''+ paymentId);

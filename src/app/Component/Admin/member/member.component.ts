@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FilterMemberPipe } from '../../../Pipes/filter-member.pipe';
 import { EnrollmentService } from '../../../Services/enrollment.service';
+import { ProgramService } from '../../../Services/program.service';
+import { SubscriptionService } from '../../../Services/subscription.service';
 
 @Component({
   selector: 'app-member',
@@ -12,81 +14,54 @@ import { EnrollmentService } from '../../../Services/enrollment.service';
   styleUrl: './member.component.css'
 })
 export class MemberComponent implements OnInit {
+  deleteMember:number=0;
   members: Member[] = [];
   member : Member|undefined;
   searchText:any = '';
   selectedMember: any;
   showMemberDetails: any;
   workoutPrograms:any;
+  programs:any;
+  subscriptions:any;
 
   constructor(private memberService: MemberService, 
     private enrollmentService :EnrollmentService,
-    private toastr: ToastrService, 
+    private programService:ProgramService,
+    private subscriptionService:SubscriptionService,
     private router:Router,
-    // private filter:FilterMemberPipe
   ) { }
 
   ngOnInit(): void {
     this.loadMembers();
+    this.programService.getAllWorkoutPrograms().subscribe(
+      data => {
+        console.log(data);
+        this.programs = data;
+      });
+      this.subscriptionService.getSubscription().subscribe(
+        data => {
+          console.log(data);
+          this.subscriptions = data;
+        });
   }
 
-//   close() { }
-//   onDelete(memberId: number) {
-
-//     if (confirm("Do you want to delete this member?")) {
-//       this.memberService.deleteMember(memberId).subscribe(data => {
-//       this.toastr.success('Member is deleted',"Deleted",{
-//         timeOut:10000,
-//         closeButton:true
-//       });
-//         this.loadMembers();  
-//       }, error => {
-//         this.toastr.error("Failed to delete member", "Error");
-//       });
-//     }
-//   }
-//   enrollments(id:number){
-
-//   }
-
-
-//   loadMembers(){
-
-//     this.memberService.getMember().subscribe(data =>{
-//       console.log(data);  
-//       this.members = data;
-//     }, error => {
-//       this.toastr.error("Failed to load members", "Error");
-//     });
-//   }
-
-
-//   onEdit(member: any): void {
-//     this.selectedMember = { ...member }; 
-//     console.log('Editing member:', this.selectedMember);
-//   }
+onDelete() {
   
-//  onView(memberid:string){
-//     this.router.navigate([`viewMember/id${memberid}`])
-//  }
-close() { }
-
-// On Delete with confirmation and custom alert for success/failure
-onDelete(memberId: number) {
-  const confirmDelete = window.confirm("Are you sure you want to delete this member?");
-  
-  if (confirmDelete) {
-    this.memberService.deleteMember(memberId).subscribe(
+    this.memberService.deleteMember(this.deleteMember).subscribe(
       data => {
-        alert("Member deleted successfully!");
         this.loadMembers();  // Reload the list after deletion
       },
       error => {
-        alert("Failed to delete member!");
+        console.log(error)
       }
     );
-  }
+    location.reload();
 }
+DeleteId(memberId:number){
+  this.deleteMember=memberId
+  console.log(this.deleteMember)
+}
+
 
 // Placeholder for enrollments (currently empty)
 enrollments(id: number) {
@@ -110,7 +85,7 @@ loadMembers() {
       this.members = data;
     },
     error => {
-      alert("Failed to load members!");
+      // alert("Failed to load members!");
     }
   );
 }

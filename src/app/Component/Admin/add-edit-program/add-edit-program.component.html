@@ -1,5 +1,4 @@
 <div class="card shadow bg-white rounded  col d-flex justify-content-center">
-    <a href=""  class="fs-4" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i></a>
     <div class="card-header">
         <h3 class="text-dark">{{isEditMode == true ? 'Update Program' : 'Add New program' }}</h3>
     </div>
@@ -8,6 +7,10 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Program Name</label>
                 <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image :</label>
+                <input type="file" class="form-control" id="image" formControlName="name">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>

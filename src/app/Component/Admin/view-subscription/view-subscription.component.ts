@@ -38,8 +38,7 @@ loadMembers(){
     // this.subscriptions = data;
   })
 }
-
 onClose(){
-  
+  this.router.navigate(['/admin/program'])
 }
 }

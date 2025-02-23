@@ -9,7 +9,6 @@
             <div class="member-details-card">
               <h2>Subscription Details</h2>
               <div class="detail-item">
-                <strong>Id:</strong> {{ subscription.id}}
               </div>
               <div class="detail-item">
                 <strong>Title:</strong> {{ subscription.title }}
@@ -24,15 +23,7 @@
               <div class="detail-item">
                 <strong>isSpecialOffer:</strong> {{ subscription.isSpecialOffer }}
               </div>
-              <div class="detail-item">
-                <strong>PaymentType:</strong> {{ subscription.paymentType }}
-              </div>
-              <div class="detail-item">
-                <strong>PaymentDate:</strong> {{ subscription.paymentDate }}
-              </div>
-              <div class="detail-item">
-                <strong>UserCanPay:</strong> {{ subscription.userCanPay }}
-              </div>
+
               <button class="btn" (click)="onClose()">Okay</button>
             </div>
            </tr> 

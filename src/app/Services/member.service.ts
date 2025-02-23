@@ -29,7 +29,7 @@ export class MemberService {
     return this.Http.post(this.api+'Admin/Add-User', member);
   }
   deleteMember(memberId: number) {
-    return this.Http.delete(this.api+'Admin/Delete-Member/' + memberId);
+    return this.Http.delete('http://localhost:5278/api/Admin/Delete-Member/' + memberId);
   }
   updateMember(member: Member, memberId: string) {
     return this.Http.put(this.api+'Admin/Update-Member/' + memberId, member);

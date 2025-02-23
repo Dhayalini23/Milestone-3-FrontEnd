@@ -29,10 +29,10 @@ export class AnnualFinancialReportComponent implements OnInit {
   }
   // Data for the line chart
   public lineChartData: ChartData<'line'> = {
-    labels: this.months, // Monthly labels
+    labels: JSON.parse(localStorage.getItem('month') || '[]'), // Monthly labels
     datasets: [
       {
-        data:this.income, // Annual income for each month
+        data:JSON.parse(localStorage.getItem('income') || '[]'), // Annual income for each month
         label: 'Income',
         borderColor: 'rgba(75,192,192,1)', // Line color
         fill: false, // Do not fill the area under the line

@@ -128,9 +128,9 @@
 <!-- Payment History -->
 <div class="modal fade" id="paymentHistory" tabindex="-1" aria-labelledby="paymentHistoryLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content" style="width: 900px;">
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      <div class="modal-body">
+      <div class="modal-body " >
         
 <div >
   <div class="m-3">
@@ -151,7 +151,7 @@
               <!-- <tr> -->
               <tr [ngClass]="{'refund-red': payment.isRefund, 'refund-black': !payment.isRefund}">
                 <th scope="row">{{ i }}</th>
-                <td>{{ payment.date | date: 'mediumDate' }}</td>
+                <td>{{ payment.date | date: 'shortDate' }}</td>
                 <td>{{ payment.reason }}</td>
                 <td>{{ payment.amount }}</td>
               </tr>
